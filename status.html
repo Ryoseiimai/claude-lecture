@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claudeまるわかり講座 — プロジェクト状況</title>
+<style>
+:root {
+  --bg: #faf9f7;
+  --surface: #fff;
+  --text: #1a1a1a;
+  --sub: #555;
+  --mute: #888;
+  --accent: #cc785c;
+  --cowork: #cc785c;
+  --code: #3a7d7b;
+  --intro: #6b5ecc;
+  --border: #ececec;
+  --green: #27ae60;
+  --yellow: #f39c12;
+  --red: #e74c3c;
+  --font: "Hiragino Sans","Noto Sans JP","Meiryo",sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.8; }
+
+.container { max-width: 960px; margin: 0 auto; padding: 40px 24px 80px; }
+
+/* ヘッダー */
+.page-header {
+  text-align: center;
+  padding: 48px 0 40px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 40px;
+}
+.page-header h1 { font-size: 28px; font-weight: 800; }
+.page-header .date { color: var(--mute); font-size: 14px; margin-top: 8px; }
+
+/* ステータスバッジ */
+.badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.badge--done { background: #e8f5e9; color: var(--green); }
+.badge--progress { background: #fff3e0; color: var(--yellow); }
+.badge--pending { background: #fce4ec; color: var(--red); }
+.badge--priority { background: var(--red); color: #fff; font-size: 13px; padding: 5px 16px; }
+
+/* セクション */
+.section { margin-bottom: 48px; }
+.section h2 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 概要カード */
+.overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.overview-card {
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
+}
+.overview-card .label { font-size: 12px; color: var(--mute); font-weight: 700; letter-spacing: 0.08em; }
+.overview-card .value { font-size: 28px; font-weight: 800; margin-top: 4px; }
+.overview-card .note { font-size: 13px; color: var(--sub); margin-top: 6px; }
+
+/* レッスン一覧テーブル */
+.lesson-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--surface);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
+  font-size: 14px;
+}
+.lesson-table th, .lesson-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.lesson-table thead th {
+  background: #f5f4f2;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--sub);
+}
+.lesson-table tbody tr:last-child td { border-bottom: none; }
+.lesson-table a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.lesson-table a:hover { text-decoration: underline; }
+
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+.dot--intro { background: var(--intro); }
+.dot--cowork { background: var(--cowork); }
+.dot--code { background: var(--code); }
+
+/* TODO */
+.todo-list { list-style: none; }
+.todo-list li {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 15px;
+}
+.todo-list .num {
+  background: var(--accent);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.todo-list .num.priority { background: var(--red); }
+.todo-list .content { flex: 1; }
+.todo-list .content strong { font-weight: 700; }
+.todo-list .content .sub { color: var(--sub); font-size: 13px; margin-top: 4px; }
+
+/* 抜粋版プラン */
+.extract-plan {
+  background: linear-gradient(135deg, #fff5f2, #fef9f7);
+  border: 2px solid var(--accent);
+  border-radius: 16px;
+  padding: 32px;
+  margin-top: 24px;
+}
+.extract-plan h3 { font-size: 18px; font-weight: 800; color: var(--accent); margin-bottom: 16px; }
+.extract-plan table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.extract-plan th, .extract-plan td { padding: 10px 12px; text-align: left; border-bottom: 1px solid rgba(204,120,92,0.2); }
+.extract-plan thead th { font-size: 12px; color: var(--accent); font-weight: 700; }
+
+/* フッター */
+.page-footer { text-align: center; color: var(--mute); font-size: 13px; padding-top: 40px; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="page-header">
+  <h1>Claudeまるわかり講座 — 状況ボード</h1>
+  <div class="date">最終更新: 2026-04-27</div>
+</div>
+
+<!-- ===== 概要 ===== -->
+<div class="overview">
+  <div class="overview-card">
+    <div class="label">プロジェクト</div>
+    <div class="value" style="font-size:20px">Claudeまるわかり講座</div>
+    <div class="note">本当に何もわからない人のための全17回</div>
+  </div>
+  <div class="overview-card">
+    <div class="label">全レッスン数</div>
+    <div class="value">17<span style="font-size:14px;color:var(--mute)"> / 17</span></div>
+    <div class="note"><span class="badge badge--done">HTML完成済み</span></div>
+  </div>
+  <div class="overview-card">
+    <div class="label">審判AIレビュー</div>
+    <div class="value" style="color:var(--green)">通過</div>
+    <div class="note">前回セッションで承認済み</div>
+  </div>
+  <div class="overview-card">
+    <div class="label">最優先タスク</div>
+    <div class="value" style="font-size:16px;color:var(--red)">抜粋版の作成</div>
+    <div class="note"><span class="badge badge--priority">明日の講義用</span></div>
+  </div>
+</div>
+
+<!-- ===== 全レッスン一覧 ===== -->
+<div class="section">
+  <h2>全17レッスン一覧</h2>
+  <table class="lesson-table">
+    <thead>
+      <tr><th>#</th><th>タイトル</th><th>カテゴリ</th><th>内容</th><th>状態</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="dot dot--intro"></span>00</td>
+        <td><a href="intro/00.html">Claudeには3つの使い方がある</a></td>
+        <td>導入</td>
+        <td>チャット/コワーク/コードの違い・自分に合う使い方の診断</td>
+        <td><span class="badge badge--done">完成</span></td>
+      </tr>
+      <tr>
+        <td><span class="dot dot--cowork"></span>01</td>
+        <td><a href="cowork/01.html">そもそもClaudeって何？登録して話しかけてみよう</a></td>
+        <td>アプリ編</td>
+        <td>Googleログインで登録 → 初会話 → 3つのコツ</td>
+        <td><span class="badge badge--done">完成</span></td>
+      </tr>
+      <tr>
+        <td><span class="dot dot--cowork"></span>02</td>
+        <td><a href="cowork/02.html">Claudeに伝わる言い方のコツ</a></td>
+        <td>アプリ編</td>
+        <td>伝わる5つの型・ダメ例vs良い例の対比</td>
+        <td><span class="badge badge--done">完成</span></td>
+      </tr>
+      <tr>
+        <td><span class="dot dot--cowork"></span>03</td>
+        <td><a href="cowork/03.html">仕事ごとに分ける「プロジェクト」機能</a></td>
+        <td>アプリ編</td>
+        <td>カスタム指示・資料置き場・テンプレート</td>
+        <td><span class="badge badge--done">完成</span></td>
+      </tr>
+      <tr>
+        <td><span class="dot dot--cowork"></span>04</td>
+        <td><a href="cowork/04.html">文書・資料を作ってもらう</a></td>
+        <td>アプリ編</td>
+        <td>Word風・表・グラフ・チラシ。実例10パターン</td>
+        <td><span class="badge badge--done">完成</span></td>
+      </tr>
+      <tr>
+        <td><span class="dot dot--cowork"></span>05</td>
+        <td><a href="cowork/05.html">GmailやSlackとつなぐ</a></td>
+        <td>アプリ編</td>
+        <td>Connectors接続 → メール要約・Slack監視</td>
+        <td><span class="badge badge--done">完成</span></td>
+      </tr>
+      <tr>
+        <td><span class="dot dot--cowork"></span>06</td>
+        <td><a href="cowork/06.html">ファイル・画像を放り込んで聞く</a></td>
+        <td>アプリ編</td>
+        <td>PDF・画像・Excelをドラッグ&ドロップ</td>
+        <td><span class="badge badge--done">完成</span></td>
+      </tr>
+      <tr>
+        <td><span class="dot dot--cowork"></span>07</td>
+        <td><a href="cowork/07.html">計算や表を作ってもらう</a></td>
+        <td>アプリ編</td>
+        <td>データ集計・グラフ・予測・Excel連携</td>
+        <td><span class="badge badge--done">完成</span></td>
+      </tr>
+      <tr>
+        <td><span class="dot dot--cowork"></span>08</td>
+        <td><a href="cowork/08.html">実際の仕事に使う（メール・議事録・資料）</a></td>
+        <td>アプリ編</td>
+        <td>1日の流れ・鉄則4つ・テンプレ作成で仕上げ</td>
+        <td><span class="badge badge--done">完成</span></td>
+      </tr>
+      <tr>
+        <td><span class="dot dot--code"></span>01</td>
+        <td><a href="code/01.html">Claude Codeって何？入れてみる</a></td>
+        <td>パソコン編</td>
+        <td>インストール手順（Mac/Win/Linux）</td>
+        <td><span class="badge badge--done">完成</span></td>
+      </tr>
+      <tr>
+        <td><span class="dot dot--code"></span>02</td>
+        <td><a href="code/02.html">話しかけて動かしてみる</a></td>
+        <td>パソコン編</td>
+        <td>pwd・cd・最初の5つの作業</td>
+        <td><span class="badge badge--done">完成</span></td>
+      </tr>
+      <tr>
+        <td><span class="dot dot--code"></span>03</td>
+        <td><a href="code/03.html">ファイルを読ませる・書かせる</a></td>
+        <td>パソコン編</td>
+        <td>一括処理・Git安全策</td>
+        <td><span class="badge badge--done">完成</span></td>
+      </tr>
+      <tr>
+        <td><span class="dot dot--code"></span>04</td>
+        <td><a href="code/04.html">エラーが出たら直してもらう</a></td>
+        <td>パソコン編</td>
+        <td>エラー5種の見分け方・丸投げ修正</td>
+        <td><span class="badge badge--done">完成</span></td>
+      </tr>
+      <tr>
+        <td><span class="dot dot--code"></span>05</td>
+        <td><a href="code/05.html">自分用にカスタマイズ（CLAUDE.md）</a></td>
+        <td>パソコン編</td>
+        <td>CLAUDE.md作成・職種別テンプレ3つ</td>
+        <td><span class="badge badge--done">完成</span></td>
+      </tr>
+      <tr>
+        <td><span class="dot dot--code"></span>06</td>
+        <td><a href="code/06.html">ワンボタンで呼び出す（スラッシュコマンド）</a></td>
+        <td>パソコン編</td>
+        <td>自作コマンド・エージェント作成</td>
+        <td><span class="badge badge--done">完成</span></td>
+      </tr>
+      <tr>
+        <td><span class="dot dot--code"></span>07</td>
+        <td><a href="code/07.html">外のアプリとつなぐ（MCP）</a></td>
+        <td>パソコン編</td>
+        <td>GitHub/Drive/Slack接続・APIキー管理</td>
+        <td><span class="badge badge--done">完成</span></td>
+      </tr>
+      <tr>
+        <td><span class="dot dot--code"></span>08</td>
+        <td><a href="code/08.html">放置で自動で動かす</a></td>
+        <td>パソコン編</td>
+        <td>スケジュール・Hook・自動化10選・総まとめ</td>
+        <td><span class="badge badge--done">完成</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===== やること ===== -->
+<div class="section">
+  <h2>やること（優先順）</h2>
+  <ul class="todo-list">
+    <li>
+      <div class="num priority">1</div>
+      <div class="content">
+        <strong>抜粋版「明日から使えるClaude速習ガイド」を作る</strong>
+        <div class="sub">明日の講義で配る用。全17回から即実践できる部分だけ抽出した1ページHTML</div>
+      </div>
+    </li>
+    <li>
+      <div class="num">2</div>
+      <div class="content">
+        <strong>涼晴が全レッスンをレビューする</strong>
+        <div class="sub">わかりにくい箇所・修正したい箇所のフィードバック</div>
+      </div>
+    </li>
+    <li>
+      <div class="num">3</div>
+      <div class="content">
+        <strong>当日のタイムテーブル・進行表を作る</strong>
+        <div class="sub">講義の流れ・どこで何を見せるか・ハンズオンの段取り</div>
+      </div>
+    </li>
+    <li>
+      <div class="num">4</div>
+      <div class="content">
+        <strong>レビュー後の修正を反映</strong>
+        <div class="sub">涼晴のフィードバックを各レッスンに反映</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== 抜粋版プラン ===== -->
+<div class="section">
+  <h2>抜粋版の構成プラン（提案）</h2>
+  <div class="extract-plan">
+    <h3>「明日から使えるClaude速習ガイド」— 40分で一通り触れる</h3>
+    <table>
+      <thead>
+        <tr><th>セクション</th><th>元レッスン</th><th>抜粋する内容</th><th>時間</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1. 登録して話しかける</strong></td><td>LESSON 01</td><td>Googleログイン → 最初の会話</td><td>5分</td></tr>
+        <tr><td><strong>2. 伝わる頼み方の5つの型</strong></td><td>LESSON 02</td><td>ダメ例→良い例。一番大事なパート</td><td>10分</td></tr>
+        <tr><td><strong>3. 資料を作ってもらう</strong></td><td>LESSON 04</td><td>メール・議事録・提案書の実例</td><td>10分</td></tr>
+        <tr><td><strong>4. ファイルを放り込んで聞く</strong></td><td>LESSON 06</td><td>PDF・画像・Excelをドラッグ&ドロップ</td><td>5分</td></tr>
+        <tr><td><strong>5. Claude Codeを触ってみる</strong></td><td>CODE 01+02</td><td>インストール → 最初のファイル操作</td><td>10分</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:16px;font-size:14px;color:var(--sub)">※ 涼晴の指示で構成変更可。Code編を外してアプリ編だけにすることも可能。</p>
+  </div>
+</div>
+
+<div class="page-footer">
+  Claudeまるわかり講座 — プロジェクト状況ボード
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LESSON 05 GmailやSlackとつなぐ — Claudeまるわかり講座</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="site-header__logo"><a href="../index.html">Claude<span>まるわかり</span>講座</a></div>
+    <nav class="site-header__nav">
+      <a href="../index.html#intro">導入</a>
+      <a href="../index.html#cowork">アプリ編</a>
+      <a href="../index.html#code">パソコン編</a>
+    </nav>
+  </div>
+</header>
+
+<article class="lesson">
+
+  <div class="lesson__breadcrumb">
+    <a href="../index.html">トップ</a> ＞ <a href="../index.html#cowork">アプリ編</a> ＞ LESSON 05
+  </div>
+
+  <span class="lesson__tag">CO-WORK 05</span>
+  <h1 class="lesson__title">GmailやSlackと<br>Claudeをつなぐ</h1>
+  <div class="lesson__meta">
+    <span>所要時間:約30分</span>
+    <span>レベル:応用</span>
+    <span>必要なもの:Claude有料プラン + 連携したいアカウント</span>
+  </div>
+
+  <div class="goal-box">
+    <div class="goal-box__title">この回のゴール</div>
+    <ul>
+      <li>Claudeを「普段使っているアプリ」とつなげる方法が分かる</li>
+      <li>Gmail・Slack・Googleドライブのどれか1つと接続できる</li>
+      <li>「先週のメール確認して」「Slackの◯◯チャンネル要約して」ができる</li>
+    </ul>
+  </div>
+
+  <div class="lesson__body">
+
+    <h2>1. 「連携」って何ができるようになるの?</h2>
+
+    <p>
+      ここまでは、Claudeに「自分で資料をコピペして渡す」必要がありました。
+      でも——<strong>「連携」機能を使うと、Claudeがあなたのアプリを直接見てくれます</strong>。
+    </p>
+
+    <p>例えば、こういう頼み方が全部できるようになります。</p>
+
+    <ul>
+      <li>「先週Gmailで届いた◯◯社からのメール、全部まとめて」</li>
+      <li>「Slackの#営業チャンネル、今日の動きを要約して」</li>
+      <li>「Googleドライブの『提案書』フォルダから、A社向けの資料を引っ張ってきて」</li>
+      <li>「カレンダーから来週の予定を見て、空いてる時間に30分のブロックを3つ入れて」</li>
+    </ul>
+
+    <p>
+      今まで「コピペ → Claudeに貼る → 頼む」だった作業が、<strong>「Claudeに直接頼む」だけ</strong>で済むようになります。
+    </p>
+
+    <blockquote>
+      イメージは、新入社員に「自分のGmail見ていいから、先週のA社のやりとり整理して」と頼む感じ。
+      Claudeが、あなたの手足になって動いてくれます。
+    </blockquote>
+
+    <h2>2. つなげられる主なアプリ</h2>
+
+    <p>2026年現在、つなげられる代表的なアプリは以下のとおり。</p>
+
+    <h3>メール・カレンダー</h3>
+    <ul>
+      <li>Gmail(メールの読み書き)</li>
+      <li>Google Calendar(予定の確認・作成)</li>
+      <li>Microsoft Outlook(メール・予定)</li>
+    </ul>
+
+    <h3>ファイル・文書</h3>
+    <ul>
+      <li>Googleドライブ(ファイル閲覧・検索)</li>
+      <li>Notion(ページの読み書き)</li>
+      <li>OneDrive</li>
+    </ul>
+
+    <h3>チャット・SNS</h3>
+    <ul>
+      <li>Slack(チャンネル・DMの読み取り)</li>
+      <li>Microsoft Teams</li>
+    </ul>
+
+    <h3>業務ツール</h3>
+    <ul>
+      <li>Jira(タスク管理)</li>
+      <li>Linear(タスク管理)</li>
+      <li>Asana(プロジェクト管理)</li>
+      <li>HubSpot(顧客管理)</li>
+      <li>Salesforce(営業管理)</li>
+      <li>Zapier(あらゆる自動化)</li>
+    </ul>
+
+    <p>
+      <strong>増え続けているので、公式の最新リストを見るのが確実</strong>です。
+      たいていのメジャーな業務ツールは、すでに対応しているか、近いうちに対応します。
+    </p>
+
+    <h2>3. つなげる手順(Gmailの例)</h2>
+
+    <h3>事前準備</h3>
+    <ul>
+      <li>Claude Pro以上のプラン</li>
+      <li>連携したいサービスのアカウント(この例ではGoogleアカウント)</li>
+    </ul>
+
+    <h3>手順</h3>
+
+    <ol>
+      <li>Claudeにログインして、画面右上の自分のアイコン(またはプロフィール)をクリック</li>
+      <li>「Settings(設定)」を開く</li>
+      <li>左側メニューの「Connectors(コネクター)」または「Integrations(連携)」を選ぶ</li>
+      <li>Gmailを探して「Connect(接続)」をクリック</li>
+      <li>Googleアカウントの選択画面が出てくるので、使いたいアカウントを選択</li>
+      <li>Claudeへのアクセス許可を聞かれる。内容を確認して「許可」</li>
+      <li>接続完了!</li>
+    </ol>
+
+    <div class="img-placeholder">スクリーンショット:Connectors画面 + Gmailを接続するボタン</div>
+
+    <h3>接続後、どう使う?</h3>
+
+    <p>普通のチャット欄で、話しかけるだけ。</p>
+
+    <p>例えば:</p>
+
+<pre><code>先週届いたメールの中で、取引先からの返信を時系列で一覧にして。
+相手の名前、件名、内容の要点、未返信かどうか、を表で。</code></pre>
+
+    <p>
+      Claudeが裏でGmailを見て、まとめてくれます。
+      最初の1回目は確認ダイアログが出ることがあります(「本当に送信していい?」など)。
+    </p>
+
+    <h2>4. Slackの接続例</h2>
+
+    <p>手順はGmailとほぼ同じ。</p>
+
+    <ol>
+      <li>設定 → Connectors</li>
+      <li>Slackを選択 → Connect</li>
+      <li>自分のSlackワークスペースを選んで許可</li>
+      <li>完了</li>
+    </ol>
+
+    <p>使い方の例:</p>
+
+    <ul>
+      <li>「#営業チャンネルの今週の議論を要約して」</li>
+      <li>「田中さんからの最近10件のDM、内容を整理して」</li>
+      <li>「#全体連絡の今月の告知を、時系列にまとめて」</li>
+    </ul>
+
+    <h2>5. できること・できないこと</h2>
+
+    <h3>できること</h3>
+    <ul>
+      <li>メール・チャンネル・ファイルの<strong>読み取り・検索</strong></li>
+      <li>メールの<strong>下書きまで作成</strong>(送信は確認付き)</li>
+      <li>カレンダーに<strong>予定を追加</strong>(確認付き)</li>
+      <li>Slackに<strong>メッセージ投稿</strong>(確認付き)</li>
+      <li>NotionやGoogle Docsのページ作成</li>
+    </ul>
+
+    <h3>できないこと・注意点</h3>
+    <ul>
+      <li>連携していないアカウントの中身は見られない</li>
+      <li>アプリ側で権限を絞っている場合、そこまでしか見えない</li>
+      <li>機密メッセージなど、読めない部分もある</li>
+      <li>実行するたびに、Claudeの利用枠を消費する</li>
+    </ul>
+
+    <h2>6. セキュリティの話(重要)</h2>
+
+    <div class="warn">
+      Claudeに連携するということは、<strong>そのアカウントの中身をClaudeが読めるようになる</strong>ということです。
+      会社のアカウントをつなぐ時は、必ず会社の規定・上司に確認してください。
+    </div>
+
+    <h3>覚えておきたいこと</h3>
+
+    <ul>
+      <li>個人のGmailと、会社のGmailは別のアカウント。誤接続に注意</li>
+      <li>連携はいつでも解除できる(Connectors画面の「Disconnect」)</li>
+      <li>解除すると、Claudeは以後そのアカウントを見られなくなる</li>
+      <li>社外の人(クライアントなど)のメールを扱う時は、特に慎重に</li>
+      <li>一度Claudeが読んだ内容は、会話履歴として残る(消したいなら履歴削除)</li>
+    </ul>
+
+    <h3>おすすめの使い方</h3>
+
+    <ul>
+      <li>まずは<strong>個人の・影響の少ないアカウント</strong>で試す</li>
+      <li>慣れてから仕事用アカウントに広げる</li>
+      <li>使わない連携は切っておく</li>
+      <li>迷ったら、「この内容、人に見られても大丈夫か?」で判断</li>
+    </ul>
+
+    <h2>7. 連携を使った仕事術の例</h2>
+
+    <h3>朝のルーティン</h3>
+
+<pre><code>おはよう。今日の仕事を整理したい。
+
+1. Gmailで今日の未読メールの中から、返信必要なものを抽出
+2. Slackの自分宛てのメンションを、内容と緊急度で整理
+3. カレンダーで今日の予定を時系列で
+4. 上記を踏まえて、今日の優先タスク3つを提案
+
+これをまとめて出して。</code></pre>
+
+    <h3>週次レビュー</h3>
+
+<pre><code>今週のふりかえりをしたい。
+
+- Gmailで送信した先を一覧
+- Slackでアクティブだったチャンネル
+- カレンダーで実施した会議の件数と時間
+- 来週に持ち越すタスク
+
+1枚の振り返りメモにして。</code></pre>
+
+    <h3>クライアント対応</h3>
+
+<pre><code>A社(メールドメイン:@a-company.com)との過去3ヶ月のやりとりを見て、
+現在進行中の案件と、保留中の案件、それぞれの最終更新日を表にまとめて。</code></pre>
+
+    <h2>8. やってみよう</h2>
+
+    <p>まずはGmailの連携から始めるのがおすすめ。</p>
+
+    <ol>
+      <li>個人のGmailアカウントを1つ、Claudeに接続してみる</li>
+      <li>「先週の受信メールを差出人別に一覧にして」と頼む</li>
+      <li>返ってきた内容が正しいか、念のためGmailを直接見て確認</li>
+      <li>違和感なければ、仕事用アカウントに広げていく</li>
+    </ol>
+
+    <div class="tip">
+      最初はビビるかもしれませんが、<strong>実際に動くと感動します</strong>。
+      「コピペする手間」が消えるだけで、毎日30分くらい浮くはず。
+    </div>
+
+  </div>
+
+  <aside class="summary">
+    <div class="summary__title">この回のまとめ</div>
+    <ul>
+      <li>連携機能で、Claudeがあなたのアプリを直接見てくれる</li>
+      <li>Gmail/Slack/Googleドライブなど、主要なアプリに対応</li>
+      <li>設定→Connectorsから、数クリックで接続できる</li>
+      <li>Pro以上の有料プランが必要</li>
+      <li>セキュリティ注意:会社のアカウントは規定・上司確認を</li>
+    </ul>
+  </aside>
+
+  <nav class="lesson-nav">
+    <a href="04.html" class="prev">
+      <span class="lesson-nav__dir">◀ 前の回</span>
+      <span class="lesson-nav__title">LESSON 04 — 文書・資料を作ってもらう</span>
+    </a>
+    <a href="06.html" class="next">
+      <span class="lesson-nav__dir">次の回 ▶</span>
+      <span class="lesson-nav__title">LESSON 06 — ファイル・画像を放り込んで聞く</span>
+    </a>
+  </nav>
+
+</article>
+
+<footer class="site-footer">
+  <div class="site-footer__links">
+    <a href="../index.html">トップ</a>
+    <a href="../index.html#cowork">アプリ編</a>
+    <a href="../index.html#code">パソコン編</a>
+  </div>
+  <p>&copy; Claudeまるわかり講座</p>
+</footer>
+
+</body>
+</html>

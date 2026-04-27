@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LESSON 03 仕事ごとに分ける「プロジェクト」機能 — Claudeまるわかり講座</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="site-header__logo"><a href="../index.html">Claude<span>まるわかり</span>講座</a></div>
+    <nav class="site-header__nav">
+      <a href="../index.html#intro">導入</a>
+      <a href="../index.html#cowork">アプリ編</a>
+      <a href="../index.html#code">パソコン編</a>
+    </nav>
+  </div>
+</header>
+
+<article class="lesson">
+
+  <div class="lesson__breadcrumb">
+    <a href="../index.html">トップ</a> ＞ <a href="../index.html#cowork">アプリ編</a> ＞ LESSON 03
+  </div>
+
+  <span class="lesson__tag">CO-WORK 03</span>
+  <h1 class="lesson__title">仕事ごとに分ける<br>「プロジェクト」機能</h1>
+  <div class="lesson__meta">
+    <span>所要時間:約30分</span>
+    <span>レベル:基本</span>
+    <span>必要なもの:Claude有料プラン(Pro以上)</span>
+  </div>
+
+  <div class="goal-box">
+    <div class="goal-box__title">この回のゴール</div>
+    <ul>
+      <li>「プロジェクト」機能が何者か分かる</li>
+      <li>自分の仕事用のプロジェクトを1つ作れる</li>
+      <li>同じ説明を毎回繰り返さなくて済むようになる</li>
+    </ul>
+  </div>
+
+  <div class="lesson__body">
+
+    <h2>1. プロジェクトって何?</h2>
+
+    <p>
+      LESSON 02までで、Claudeとのやりとりに慣れてきたはず。
+      ただ、1つ困ったことがあります——<strong>毎回、自己紹介や前提情報を説明し直すのが面倒</strong>。
+    </p>
+
+    <p>
+      それを解決するのが「<strong>プロジェクト</strong>」機能です。
+      仕事ごと・案件ごとに<strong>「箱」</strong>を作って、その中で会話すれば、Claudeは毎回勝手に前提を思い出してくれます。
+    </p>
+
+    <blockquote>
+      普通のチャット = 毎回「初対面」<br>
+      プロジェクト内のチャット = 毎回「よく知った仲」
+    </blockquote>
+
+    <h3>例えばこういう時に便利</h3>
+
+    <ul>
+      <li>特定のクライアント(例:B社)について何度も相談する時</li>
+      <li>継続案件(例:月刊の連載記事、毎週の会議)がある時</li>
+      <li>自分の会社・事業について深く理解させた上で相談したい時</li>
+      <li>参考資料(過去の議事録・仕様書)を入れて、それを踏まえて答えてほしい時</li>
+    </ul>
+
+    <div class="img-placeholder">スクリーンショット:プロジェクト一覧画面(仕事ごとに箱が並んでいる)</div>
+
+    <h2>2. プロジェクトの3つのパーツ</h2>
+
+    <p>プロジェクトは、3つの要素でできています。</p>
+
+    <h3>パーツ1:名前・アイコン</h3>
+
+    <p>
+      プロジェクトの名前と、ひと目で分かる説明。「A社案件」「noteの記事執筆」「経理の月次業務」など、自分が見てすぐ分かる名前にしておきます。
+    </p>
+
+    <h3>パーツ2:カスタム指示(説明書)</h3>
+
+    <p>
+      <strong>これが本丸</strong>。
+      Claudeに<strong>「このプロジェクトでは毎回こういう前提でやってね」</strong>と、あらかじめ教えておく場所です。
+    </p>
+
+    <p>例えば、営業の人のプロジェクトなら:</p>
+
+<pre><code>【前提】
+- 私は◯◯株式会社の営業担当
+- 扱っている商材:中小企業向けの会計ソフト
+- ターゲット:従業員10〜50人の会社
+
+【返事のお願い】
+- メールや提案書は、丁寧だけど堅すぎない感じで
+- 根拠や数字は必ず添える
+- 箇条書きで整理してくれると嬉しい
+
+【禁止】
+- 事実を盛らない。分からないことは「分からない」と書く</code></pre>
+
+    <p>
+      これを入れておけば、以後このプロジェクトの中では、毎回この前提で話が進みます。
+      「私は営業で〜」の説明は、もう不要。
+    </p>
+
+    <h3>パーツ3:資料置き場</h3>
+
+    <p>
+      プロジェクトに関係する資料(PDF・Word・Excel・テキストなど)を、あらかじめアップロードしておけます。
+    </p>
+
+    <p>例えば:</p>
+
+    <ul>
+      <li>会社案内のPDF</li>
+      <li>過去のメールのやりとり(コピペしたテキスト)</li>
+      <li>商品カタログ</li>
+      <li>社内マニュアル</li>
+      <li>クライアントとの議事録</li>
+    </ul>
+
+    <p>
+      資料を入れておけば、Claudeがそれを読んだ上で答えてくれます。
+      「この案件、過去のやりとりを踏まえて返信書いて」みたいな頼み方が、一発で通ります。
+    </p>
+
+    <div class="warn">
+      プロジェクトに入れる資料は、<strong>Claudeが読んで会話に使います</strong>。
+      機密情報や顧客の個人情報を入れる時は、会社の方針を確認してください。
+    </div>
+
+    <h2>3. プロジェクトを作ってみよう</h2>
+
+    <h3>手順</h3>
+
+    <ol>
+      <li>Claude(<code>claude.ai</code>)にログイン</li>
+      <li>左のメニューにある「Projects(プロジェクト)」をクリック</li>
+      <li>「Create project(新規作成)」ボタンを押す</li>
+      <li>プロジェクト名と説明を入力(例:「A社 提案業務」)</li>
+      <li>「Create」で作成</li>
+      <li>プロジェクトの詳細画面に移動したら、右側の「Custom instructions」にカスタム指示を書く</li>
+      <li>資料があれば「Add content」でアップロード</li>
+      <li>準備完了!あとは左下の入力欄で、そのプロジェクトの中で会話開始</li>
+    </ol>
+
+    <div class="img-placeholder">スクリーンショット:プロジェクト作成画面 + カスタム指示の入力欄</div>
+
+    <h2>4. カスタム指示の書き方テンプレート</h2>
+
+    <p>迷ったら、この型をコピペして、自分用に書き換えてください。</p>
+
+<pre><code>【私について】
+- 所属:◯◯(会社名・部署・役割)
+- 業務:◯◯(何をやっている人か)
+
+【このプロジェクトの目的】
+- 何のために作ったプロジェクトか(例:B社案件の提案書作成)
+- 関係者:自分、B社の山田さん(広報担当)
+
+【返事のお願い】
+- トーン:◯◯(丁寧/カジュアル/ストレート)
+- 長さ:基本◯◯字くらい
+- 構成:箇条書き/表/文章、お好み
+- 根拠や数字は必ず添える
+
+【避けてほしいこと】
+- 推測で事実を作らない
+- 専門用語を使わない(特に◯◯の分野)
+- 長すぎる前置きは省略</code></pre>
+
+    <h2>5. 実際の使用例</h2>
+
+    <h3>例1:営業のAさんのプロジェクト</h3>
+
+    <p><strong>プロジェクト名</strong>:「B社 提案業務」</p>
+
+    <p><strong>カスタム指示</strong>:自分の会社の情報、B社の背景、過去のやりとりの要点</p>
+
+    <p><strong>資料</strong>:自社の商品パンフ、B社のWebサイトの紹介文、過去メールの履歴</p>
+
+    <p><strong>使い方の例</strong>:</p>
+    <ul>
+      <li>「今週、B社からこんな質問が来た。返信の下書きを書いて」</li>
+      <li>「来週の提案会で、B社の課題にハマりそうな切り口を3つ考えて」</li>
+      <li>「B社向けに、うちの商品Xのメリットを200字で整理して」</li>
+    </ul>
+
+    <h3>例2:ライターのBさんのプロジェクト</h3>
+
+    <p><strong>プロジェクト名</strong>:「月刊◯◯誌 連載」</p>
+
+    <p><strong>カスタム指示</strong>:連載のコンセプト、毎回の文字数、読者像、自分の文体</p>
+
+    <p><strong>資料</strong>:過去の掲載号、編集部からのレギュレーション</p>
+
+    <p><strong>使い方の例</strong>:</p>
+    <ul>
+      <li>「今月のテーマ案を5つ出して」</li>
+      <li>「決まったテーマで、冒頭500字だけ書いて」</li>
+      <li>「書き上げた原稿、文字数と誤字だけチェックして」</li>
+    </ul>
+
+    <h2>6. プロジェクトを使うコツ</h2>
+
+    <h3>コツ1:最初は「雑に」作る</h3>
+
+    <p>
+      完璧なカスタム指示を最初から書こうとしなくて大丈夫。
+      使いながら「あ、これも書いておいた方がいいな」と気づいたら、その都度追記すればOK。
+    </p>
+
+    <h3>コツ2:多すぎる資料は逆効果</h3>
+
+    <p>
+      関係ない資料まで全部入れると、Claudeが迷います。
+      <strong>本当に関係のあるものだけ</strong>を厳選してください。
+    </p>
+
+    <h3>コツ3:プロジェクトを分けすぎない</h3>
+
+    <p>
+      最初のうちは、「仕事」「プライベート」くらいの粒度で十分。
+      使い慣れてきたら、案件ごとに細かく分けていきます。
+    </p>
+
+    <h2>7. やってみよう</h2>
+
+    <p>今日のうちに、1つだけでもプロジェクトを作ってみてください。</p>
+
+    <ol>
+      <li>自分の仕事で、<strong>繰り返し発生する業務</strong>を1つ決める(例:メール返信、記事執筆、経理処理)</li>
+      <li>その業務用のプロジェクトを作る</li>
+      <li>カスタム指示にテンプレートをコピペ→自分用に書き換え</li>
+      <li>関係する資料(あれば)を2〜3個アップロード</li>
+      <li>試しに、そのプロジェクトの中で1回質問してみる</li>
+    </ol>
+
+    <div class="tip">
+      毎回の「自己紹介の手間」がなくなるので、使い始めると<strong>もう通常チャットには戻れなくなる</strong>はずです。
+    </div>
+
+  </div>
+
+  <aside class="summary">
+    <div class="summary__title">この回のまとめ</div>
+    <ul>
+      <li>プロジェクトは「仕事ごとの箱」。前提を覚えておいてくれる</li>
+      <li>3つのパーツ:名前/カスタム指示/資料置き場</li>
+      <li>カスタム指示には「自分」「目的」「返事のお願い」を書く</li>
+      <li>Pro以上の有料プランが必要</li>
+      <li>最初は雑でOK、使いながら育てていく</li>
+    </ul>
+  </aside>
+
+  <nav class="lesson-nav">
+    <a href="02.html" class="prev">
+      <span class="lesson-nav__dir">◀ 前の回</span>
+      <span class="lesson-nav__title">LESSON 02 — Claudeに伝わる言い方のコツ</span>
+    </a>
+    <a href="04.html" class="next">
+      <span class="lesson-nav__dir">次の回 ▶</span>
+      <span class="lesson-nav__title">LESSON 04 — 文書・資料を作ってもらう</span>
+    </a>
+  </nav>
+
+</article>
+
+<footer class="site-footer">
+  <div class="site-footer__links">
+    <a href="../index.html">トップ</a>
+    <a href="../index.html#cowork">アプリ編</a>
+    <a href="../index.html#code">パソコン編</a>
+  </div>
+  <p>&copy; Claudeまるわかり講座</p>
+</footer>
+
+</body>
+</html>

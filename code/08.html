@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LESSON 08 放置で自動で動かす — Claudeまるわかり講座</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="site-header__logo"><a href="../index.html">Claude<span>まるわかり</span>講座</a></div>
+    <nav class="site-header__nav">
+      <a href="../index.html#intro">導入</a>
+      <a href="../index.html#cowork">アプリ編</a>
+      <a href="../index.html#code">パソコン編</a>
+    </nav>
+  </div>
+</header>
+
+<article class="lesson code">
+
+  <div class="lesson__breadcrumb">
+    <a href="../index.html">トップ</a> ＞ <a href="../index.html#code">パソコン編</a> ＞ LESSON 08
+  </div>
+
+  <span class="lesson__tag code">CODE 08</span>
+  <h1 class="lesson__title">放置で<br>自動で動かす</h1>
+  <div class="lesson__meta">
+    <span>所要時間:約30分</span>
+    <span>レベル:仕上げ</span>
+    <span>必要なもの:Claude Codeインストール済み+LESSON 01〜07の知識</span>
+  </div>
+
+  <div class="goal-box">
+    <div class="goal-box__title">この回のゴール</div>
+    <ul>
+      <li>Claudeが「自動で動く」仕組みを3種類理解する</li>
+      <li>自分の仕事で自動化できる部分を見つける</li>
+      <li>「毎朝9時に◯◯」みたいな予定を組める</li>
+    </ul>
+  </div>
+
+  <div class="lesson__body">
+
+    <h2>1. ついに「自分が何もしなくても動く」段階へ</h2>
+
+    <p>
+      ここまでの7回で、Claudeに話しかけて動かす方法を学びました。
+      最後のこの回では、<strong>放置しても勝手に動く仕組み</strong>を紹介します。
+    </p>
+
+    <p>
+      例えば:
+    </p>
+
+    <ul>
+      <li>毎朝9時に、今日のニュース+天気+ToDoを自動で整理してくれる</li>
+      <li>新しいメールが届くと、自動で返信の下書きを作ってくれる</li>
+      <li>毎週金曜日に、今週の振り返りレポートを自動生成</li>
+      <li>コードを保存するたびに、自動でテストを実行</li>
+    </ul>
+
+    <p>
+      これらは全部、Claude Codeで実現できます。
+    </p>
+
+    <h2>2. 自動化の3パターン</h2>
+
+    <h3>パターン1:時間を決めて動かす(スケジュール実行)</h3>
+
+    <p>
+      「毎朝9時に」「毎週月曜に」のように、<strong>時間指定</strong>で動かす方法。
+    </p>
+
+    <p>主な使い方:</p>
+    <ul>
+      <li>朝のルーティン実行</li>
+      <li>週次・月次の定期レポート</li>
+      <li>バックアップ</li>
+    </ul>
+
+    <h3>パターン2:何かが起きたら動かす(イベント駆動)</h3>
+
+    <p>
+      「ファイルが保存されたら」「メールが来たら」のように、<strong>トリガー(きっかけ)</strong>で動かす方法。
+      Claude Codeではこれを<strong>「フック(Hook)」</strong>と呼びます。
+    </p>
+
+    <p>主な使い方:</p>
+    <ul>
+      <li>ファイル保存時に自動テスト</li>
+      <li>コード編集時に自動フォーマット</li>
+      <li>Git操作の前後に検証</li>
+    </ul>
+
+    <h3>パターン3:連続で動き続ける(ループ実行)</h3>
+
+    <p>
+      ずっと動き続けて、状況が変わるたびに対応する方法。
+    </p>
+
+    <p>主な使い方:</p>
+    <ul>
+      <li>新着メッセージの監視・対応</li>
+      <li>ログの監視・アラート</li>
+      <li>定期的なWebサイトの更新チェック</li>
+    </ul>
+
+    <h2>3. スケジュール実行のやり方</h2>
+
+    <h3>Claudeに頼んで作ってもらう</h3>
+
+<pre><code>毎朝9時に、以下を自動でやる仕組みを作って。
+
+1. 今日の天気を取得(東京)
+2. 今日のカレンダー予定を一覧化
+3. 未読メールの件数確認
+4. ToDoリストを優先度順に
+5. 上記をまとめて、daily_briefing_2026-04-24.md に保存
+
+実行環境:MacのLaunchd、または Windowsタスクスケジューラ
+
+必要な準備と、手順を教えて。</code></pre>
+
+    <p>
+      Claudeが仕組みを作って、設定手順まで案内してくれます。
+    </p>
+
+    <h3>使える仕組み(OSごと)</h3>
+
+    <ul>
+      <li><strong>Mac</strong>:<code>launchd</code> または <code>cron</code></li>
+      <li><strong>Windows</strong>:<code>タスクスケジューラ</code></li>
+      <li><strong>Linux</strong>:<code>cron</code></li>
+    </ul>
+
+    <p>
+      名前は違いますが、どれも「決まった時刻に、決まった処理を実行する」ための標準機能です。
+    </p>
+
+    <h2>4. フック(Hook)の使い方</h2>
+
+    <p>
+      フックは、Claude Code内の<strong>特定の操作の前後に、自動で何かを実行</strong>する機能。
+    </p>
+
+    <h3>使える主なフック</h3>
+
+    <ul>
+      <li><strong>PreToolUse</strong>:ツール実行<strong>前</strong>に動く</li>
+      <li><strong>PostToolUse</strong>:ツール実行<strong>後</strong>に動く</li>
+      <li><strong>SessionStart</strong>:セッション開始時に動く</li>
+      <li><strong>Stop</strong>:セッション終了時に動く</li>
+    </ul>
+
+    <h3>実例:ファイル保存時に自動フォーマット</h3>
+
+<pre><code>Claude Codeでファイルを書き込んだ後、
+自動で「prettier(自動整形ツール)」を走らせたい。
+
+~/.claude/settings.json にフックを設定して。</code></pre>
+
+    <p>
+      これで、Claudeがファイル書き込みをするたびに、自動で整形してくれます。
+    </p>
+
+    <h3>実例:コミット前に自動テスト</h3>
+
+<pre><code>Git commit前に、自動でテストを走らせて、
+失敗したらコミットを止める仕組み作って。</code></pre>
+
+    <h2>5. 実用的な自動化アイデア10選</h2>
+
+    <h3>個人業務</h3>
+
+    <ol>
+      <li><strong>朝ブリーフィング</strong>:毎朝9時に天気+予定+ニュースをメール</li>
+      <li><strong>週次振り返り</strong>:金曜17時に今週のGitHub活動をまとめ</li>
+      <li><strong>月次レポート</strong>:月末に売上・経費を集計したExcel作成</li>
+    </ol>
+
+    <h3>情報収集</h3>
+
+    <ol start="4">
+      <li><strong>ニュース要約</strong>:毎朝、指定サイトのニュースを要約してLINEに送信</li>
+      <li><strong>競合チェック</strong>:毎週月曜、競合5社のプレスリリースを一覧化</li>
+      <li><strong>気になるキーワード監視</strong>:SNSでキーワードを含む新規投稿を通知</li>
+    </ol>
+
+    <h3>開発・作業</h3>
+
+    <ol start="7">
+      <li><strong>自動テスト</strong>:コード保存→自動でテスト実行</li>
+      <li><strong>自動デプロイ</strong>:mainブランチへのマージ→本番環境へ自動反映</li>
+      <li><strong>バックアップ</strong>:毎日深夜にプロジェクトフォルダをクラウドへ</li>
+    </ol>
+
+    <h3>家庭</h3>
+
+    <ol start="10">
+      <li><strong>家計簿集計</strong>:月1で銀行CSVを読んでカテゴリ集計</li>
+    </ol>
+
+    <h2>6. 始める前に決めておくこと</h2>
+
+    <h3>1. 本当に自動化する必要があるか?</h3>
+
+    <p>
+      「週1回の作業」なら、自動化の手間が割に合わない。
+      <strong>週3回以上、または頻繁にミスする作業</strong>だけ自動化の対象にしましょう。
+    </p>
+
+    <h3>2. 失敗時の対処を決めておく</h3>
+
+    <p>
+      自動化したものは、<strong>失敗する可能性</strong>が必ずあります。
+      「失敗したらメール通知」「失敗したら前回のバックアップに戻す」など、事前に決めておく。
+    </p>
+
+    <h3>3. 定期的に点検する</h3>
+
+    <p>
+      「気づいたら3ヶ月動いてなかった」はよくある話。
+      月1回くらい、自動化が正常に動いてるか確認する習慣を。
+    </p>
+
+    <h2>7. 自動化のやり過ぎに注意</h2>
+
+    <div class="warn">
+      自動化は<strong>強力だが、暴走すると怖い</strong>。
+      「毎日全メールに自動返信」みたいな設定でトラブルが起きると、止めるまで被害が続きます。
+    </div>
+
+    <h3>避けるべき設定</h3>
+
+    <ul>
+      <li>確認なしで他人にメール送信する設定</li>
+      <li>確認なしで大量削除する設定</li>
+      <li>ループで無限に動き続ける設定(お金・リソース食いつぶし)</li>
+      <li>権限が強すぎるAPIキーでの自動実行</li>
+    </ul>
+
+    <h3>安全にする工夫</h3>
+
+    <ul>
+      <li>まず<strong>「下書き保存」</strong>や<strong>「通知」</strong>止まりにする</li>
+      <li>本番環境の変更は、必ず人間の承認を挟む</li>
+      <li>実行回数・時間・対象を明確に制限する</li>
+      <li>定期的にログをチェック</li>
+    </ul>
+
+    <h2>8. 今までの17回の総まとめ</h2>
+
+    <p>
+      ここまで、全17回(導入1 + アプリ編8 + パソコン編8)の講座お疲れ様でした!
+    </p>
+
+    <h3>あなたが今できるようになったこと</h3>
+
+    <ul>
+      <li>Claudeの3つの使い方(チャット/コワーク/コード)を選べる</li>
+      <li>アプリ版で、仕事のメール・議事録・資料作成を任せられる</li>
+      <li>Gmail・Slackと連携して、業務を組み立てられる</li>
+      <li>ファイルや画像を渡して分析・集計ができる</li>
+      <li>Claude Codeで、パソコンのファイルを直接操作できる</li>
+      <li>エラーが出ても、自分で調べて直せる</li>
+      <li>自分用にカスタマイズ(CLAUDE.md)できる</li>
+      <li>ワンボタン機能(スラッシュコマンド・エージェント)を作れる</li>
+      <li>外部アプリと連携できる</li>
+      <li>定期実行・自動化の仕組みが組める</li>
+    </ul>
+
+    <p>
+      ここまで来たら、<strong>「ClaudeとAIを使いこなす側」</strong>です。
+      あとは、自分の仕事に組み込んで、毎日使ってみるだけ。
+    </p>
+
+    <h2>9. 次は何をする?</h2>
+
+    <p>この講座を終えた後のおすすめ:</p>
+
+    <ol>
+      <li><strong>自分の仕事の中で、一番繰り返しが多い作業</strong>をClaudeで自動化してみる</li>
+      <li>周りの人に、Claudeのどれか1つを教えてあげる(教えることで自分も定着する)</li>
+      <li>1ヶ月後に、この講座をもう一度流し読みする(知識の定着)</li>
+      <li>公式の新機能情報をたまにチェック(Anthropic社のブログ等)</li>
+    </ol>
+
+    <div class="tip">
+      この講座の内容は、<strong>ずっとここに残ります</strong>。
+      分からなくなったら、いつでも該当のLESSONに戻ってきてください。
+    </div>
+
+    <p style="text-align:center;margin-top:48px;font-size:20px;font-weight:700;color:#3a7d7b;">
+      17回の講座、本当にお疲れ様でした。<br>
+      これから、あなたの仕事がもっと面白くなります。
+    </p>
+
+  </div>
+
+  <aside class="summary">
+    <div class="summary__title">この回のまとめ</div>
+    <ul>
+      <li>自動化は3パターン:スケジュール実行/イベント駆動/ループ実行</li>
+      <li>OSの標準機能(cron、タスクスケジューラ等)で時間指定実行</li>
+      <li>フック(Hook)で、操作の前後に自動処理</li>
+      <li>自動化は強力だが、暴走時の影響も大きい。安全装置を忘れずに</li>
+      <li>17回で、ClaudeとAIを使いこなす側に</li>
+    </ul>
+  </aside>
+
+  <nav class="lesson-nav">
+    <a href="07.html" class="prev">
+      <span class="lesson-nav__dir">◀ 前の回</span>
+      <span class="lesson-nav__title">LESSON 07 — 外のアプリとつなぐ</span>
+    </a>
+    <a href="../index.html" class="next">
+      <span class="lesson-nav__dir">🎉 完走!</span>
+      <span class="lesson-nav__title">全17回の目次に戻る</span>
+    </a>
+  </nav>
+
+</article>
+
+<footer class="site-footer">
+  <div class="site-footer__links">
+    <a href="../index.html">トップ</a>
+    <a href="../index.html#cowork">アプリ編</a>
+    <a href="../index.html#code">パソコン編</a>
+  </div>
+  <p>&copy; Claudeまるわかり講座</p>
+</footer>
+
+</body>
+</html>

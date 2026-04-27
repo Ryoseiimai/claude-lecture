@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LESSON 07 計算や表を作ってもらう — Claudeまるわかり講座</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="site-header__logo"><a href="../index.html">Claude<span>まるわかり</span>講座</a></div>
+    <nav class="site-header__nav">
+      <a href="../index.html#intro">導入</a>
+      <a href="../index.html#cowork">アプリ編</a>
+      <a href="../index.html#code">パソコン編</a>
+    </nav>
+  </div>
+</header>
+
+<article class="lesson">
+
+  <div class="lesson__breadcrumb">
+    <a href="../index.html">トップ</a> ＞ <a href="../index.html#cowork">アプリ編</a> ＞ LESSON 07
+  </div>
+
+  <span class="lesson__tag">CO-WORK 07</span>
+  <h1 class="lesson__title">計算や表を<br>作ってもらう</h1>
+  <div class="lesson__meta">
+    <span>所要時間:約30分</span>
+    <span>レベル:便利技</span>
+    <span>必要なもの:Claudeのアカウント</span>
+  </div>
+
+  <div class="goal-box">
+    <div class="goal-box__title">この回のゴール</div>
+    <ul>
+      <li>Claudeに数字の計算・集計を任せられる</li>
+      <li>Excel風の表・グラフが作れる</li>
+      <li>Excelに戻す時の形式で出力してもらえる</li>
+    </ul>
+  </div>
+
+  <div class="lesson__body">
+
+    <h2>1. Claudeは「数字」も得意</h2>
+
+    <p>
+      「AI=文章を書くもの」と思われがちですが、Claudeは<strong>数字の集計・計算も得意</strong>です。
+      しかも、Claudeには「分析モード」という特別な機能があり、<strong>実際に電卓として動く</strong>ので、大量のデータを正確に計算できます。
+    </p>
+
+    <h3>何ができるの?</h3>
+
+    <ul>
+      <li>売上データの集計(月別、担当者別、商品別)</li>
+      <li>Excelの関数を作ってもらう(VLOOKUP、SUMIFなど)</li>
+      <li>データから傾向を見つけてもらう</li>
+      <li>グラフ(棒・折れ線・円)を作る</li>
+      <li>将来の予測(来月の売上など、ざっくり)</li>
+      <li>家計簿の整理・分析</li>
+      <li>スケジュール表・ガントチャート</li>
+    </ul>
+
+    <h2>2. 基本:数字を渡して聞くだけ</h2>
+
+    <h3>一番かんたんな例</h3>
+
+<pre><code>以下の売上データを見て。
+
+1月:120万円
+2月:135万円
+3月:98万円
+4月:145万円
+
+- 平均・合計・最高月・最低月を計算して
+- 傾向を一言で
+- 5月の予測(+理由)も</code></pre>
+
+    <p>これだけで、ちゃんと集計と考察を返してくれます。</p>
+
+    <h3>Excelデータをそのまま渡す</h3>
+
+    <p>
+      Excelファイル(.xlsx)やCSVを、入力欄に<strong>ドラッグ&ドロップ</strong>するだけでOK。
+      「このファイルの中身を集計して」と頼めば、数百行のデータでも一気に処理してくれます。
+    </p>
+
+<pre><code>このCSV(2026年第1四半期の受注データ)を分析して。
+
+- 担当者別の売上ランキング
+- 商品カテゴリ別の割合(%)
+- 一番伸びている商品TOP3
+- 要注意な(下がっている)顧客
+
+結果は、それぞれ表形式でお願い。</code></pre>
+
+    <h2>3. Excel関数を教えてもらう</h2>
+
+    <p>
+      Excelで「この計算、関数でできるのかな?」と思った時も、Claudeに聞けばすぐ答えが出ます。
+    </p>
+
+    <h3>例1:条件に合うものだけ合計したい</h3>
+
+<pre><code>Excelで、A列が「東京」のB列の数値だけを合計したい。
+どの関数を使えばいい?</code></pre>
+
+    <p>Claudeの返事:</p>
+
+    <blockquote>
+      <code>=SUMIF(A:A, "東京", B:B)</code> でOKです。
+      A列で「東京」と一致する行のB列を合計します。
+    </blockquote>
+
+    <h3>例2:別シートから探してくる</h3>
+
+<pre><code>顧客IDから、別シート「顧客一覧」にある会社名を引っ張ってきたい。
+やり方と関数を教えて。</code></pre>
+
+    <p>
+      「<strong>VLOOKUP</strong>なのか<strong>XLOOKUP</strong>がいいのか」(どちらも別シートを検索するExcelの関数の名前)みたいな比較つきで、初心者に向けた説明をしてくれます。
+    </p>
+
+    <h3>例3:エラーが出た時</h3>
+
+<pre><code>Excelでこの関数を入れたら「#N/A」と出た。
+=VLOOKUP(A2, 顧客一覧!A:B, 2, FALSE)
+原因と直し方を教えて。</code></pre>
+
+    <h2>4. 表を作ってもらう</h2>
+
+    <p>
+      LESSON 04でも少し触れましたが、Claudeは<strong>表も直接作れます</strong>。
+    </p>
+
+    <h3>よくある表のパターン</h3>
+
+    <ul>
+      <li><strong>比較表</strong>:自社と競合、商品A・B・C、プランS・M・L</li>
+      <li><strong>スケジュール表</strong>:プロジェクトの進行、週次の予定</li>
+      <li><strong>料金表</strong>:サービスの価格体系</li>
+      <li><strong>チェックリスト</strong>:確認項目・実施状況</li>
+      <li><strong>名簿・顧客一覧</strong>:連絡先・属性</li>
+    </ul>
+
+    <h3>頼み方</h3>
+
+<pre><code>以下の条件で、料金プラン表を作って。
+
+プラン:ライト / スタンダード / プレミアム
+比較項目:月額料金 / 利用可能回数 / サポート / 特典
+形式:表(左端が項目、上がプラン名)
+
+あとで、Excelに貼り付けたいので、タブ区切りでも出して。</code></pre>
+
+    <p>
+      表を作ったあと、「Excelに貼り付け用に出して」と頼めば、<strong>そのままExcelに貼り付け可能</strong>な形式で出してくれます。
+    </p>
+
+    <h2>5. グラフを作ってもらう</h2>
+
+    <p>
+      データを渡して、「グラフにして」と頼むだけで、その場でグラフを描いてくれます。
+    </p>
+
+    <h3>作れる主なグラフ</h3>
+
+    <ul>
+      <li>棒グラフ(月別売上など)</li>
+      <li>折れ線グラフ(推移・トレンド)</li>
+      <li>円グラフ(構成比)</li>
+      <li>散布図(相関関係)</li>
+      <li>組み合わせ(売上+利益率など)</li>
+    </ul>
+
+    <h3>頼み方の例</h3>
+
+<pre><code>以下のデータを、折れ線グラフにして。
+タイトル:「2026年 月別売上推移」
+縦軸:売上(万円)
+横軸:月
+
+1月:120 / 2月:135 / 3月:98 / 4月:145
+5月:160 / 6月:175 / 7月:150 / 8月:180
+
+グラフの下に、読み取れる傾向を3つ書いて。</code></pre>
+
+    <div class="img-placeholder">スクリーンショット:Claudeが描いたグラフ + 下に傾向の分析</div>
+
+    <h2>6. 予測・分析もしてくれる</h2>
+
+    <p>
+      過去のデータを渡して、「次はどうなりそう?」と聞けます。
+    </p>
+
+<pre><code>過去6ヶ月の売上データです。
+
+[データ省略]
+
+- 7月の売上を予測して(理由も)
+- このままいくと、年間でいくらになりそう?
+- 落ち込みそうなリスクと、防ぐアイデアを3つ</code></pre>
+
+    <div class="warn">
+      予測はあくまで<strong>過去データからの推測</strong>です。
+      突発的な出来事(新商品投入、競合の動き)は含まれません。
+      「参考値」として使って、最終判断は自分でしましょう。
+    </div>
+
+    <h2>7. Excelに戻すには</h2>
+
+    <h3>方法1:コピペする</h3>
+
+    <p>
+      表をそのままコピーして、Excelに貼り付け。
+      簡単な表ならこれで十分。
+    </p>
+
+    <h3>方法2:CSVで出力する</h3>
+
+<pre><code>この表を、CSV形式(カンマ区切り)で出力して。
+1行目は項目名、2行目以降がデータで。</code></pre>
+
+    <p>
+      出てきたテキストを.csvで保存すれば、Excelで開けます。
+    </p>
+
+    <h3>方法3:Excel関数つきで出す</h3>
+
+<pre><code>この売上データを、Excel用に出してほしい。
+
+- データ部分はそのまま貼り付け可能な形式で
+- 末尾に合計行、平均行を足す。関数付きで
+  (=SUM、=AVERAGE)</code></pre>
+
+    <h2>8. やってみよう</h2>
+
+    <ol>
+      <li>自分の家計(今月の支出)を10行くらいClaudeに渡して、カテゴリ別に集計してもらう</li>
+      <li>仕事のExcelファイルを1つ放り込んで、傾向を分析してもらう</li>
+      <li>「Excelでこんな関数ある?」と疑問に思ってることを、聞いてみる</li>
+    </ol>
+
+    <div class="tip">
+      Claudeは数字が得意ですが、<strong>大事な計算(給与・税金・契約金額など)は必ず最後にダブルチェック</strong>しましょう。
+      集計のスピードアップには最強ですが、公式書類の最終確認は自分で。
+    </div>
+
+  </div>
+
+  <aside class="summary">
+    <div class="summary__title">この回のまとめ</div>
+    <ul>
+      <li>数字の集計・計算は、Claudeの得意分野</li>
+      <li>Excelファイルを直接ドロップしても分析してくれる</li>
+      <li>Excel関数の相談、エラーの解決もできる</li>
+      <li>表・グラフの作成、Excelに戻す形式での出力もOK</li>
+      <li>予測や分析もできるが、最終判断は自分で</li>
+    </ul>
+  </aside>
+
+  <nav class="lesson-nav">
+    <a href="06.html" class="prev">
+      <span class="lesson-nav__dir">◀ 前の回</span>
+      <span class="lesson-nav__title">LESSON 06 — ファイル・画像を放り込んで聞く</span>
+    </a>
+    <a href="08.html" class="next">
+      <span class="lesson-nav__dir">次の回 ▶</span>
+      <span class="lesson-nav__title">LESSON 08 — 実際の仕事に使う</span>
+    </a>
+  </nav>
+
+</article>
+
+<footer class="site-footer">
+  <div class="site-footer__links">
+    <a href="../index.html">トップ</a>
+    <a href="../index.html#cowork">アプリ編</a>
+    <a href="../index.html#code">パソコン編</a>
+  </div>
+  <p>&copy; Claudeまるわかり講座</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LESSON 04 エラーが出たら直してもらう — Claudeまるわかり講座</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="site-header__logo"><a href="../index.html">Claude<span>まるわかり</span>講座</a></div>
+    <nav class="site-header__nav">
+      <a href="../index.html#intro">導入</a>
+      <a href="../index.html#cowork">アプリ編</a>
+      <a href="../index.html#code">パソコン編</a>
+    </nav>
+  </div>
+</header>
+
+<article class="lesson code">
+
+  <div class="lesson__breadcrumb">
+    <a href="../index.html">トップ</a> ＞ <a href="../index.html#code">パソコン編</a> ＞ LESSON 04
+  </div>
+
+  <span class="lesson__tag code">CODE 04</span>
+  <h1 class="lesson__title">エラーが出たら<br>直してもらう</h1>
+  <div class="lesson__meta">
+    <span>所要時間:約30分</span>
+    <span>レベル:実作業</span>
+    <span>必要なもの:Claude Codeインストール済み</span>
+  </div>
+
+  <div class="goal-box">
+    <div class="goal-box__title">この回のゴール</div>
+    <ul>
+      <li>エラーが出てもパニックにならない</li>
+      <li>エラーメッセージをClaudeに渡して原因を見つけられる</li>
+      <li>直った後に「なぜそうなったか」も理解できるようになる</li>
+    </ul>
+  </div>
+
+  <div class="lesson__body">
+
+    <h2>1. エラーは「悪」じゃない、「ヒント」</h2>
+
+    <p>
+      パソコン作業でエラーが出ると、初心者はビビります。
+      真っ赤な英語メッセージが並んで、「何やねん…」と。
+    </p>
+
+    <p>
+      でも、エラーは<strong>「ここが問題だよ」と教えてくれるメッセージ</strong>です。
+      Claudeに渡せば、だいたい解決します。
+    </p>
+
+    <blockquote>
+      エラーは「怒られてる」じゃなくて「案内されてる」。
+      ここを勘違いしてる人が多いので、今日で認識を変えましょう。
+    </blockquote>
+
+    <h2>2. 基本の流れ:エラー → Claudeに丸投げ</h2>
+
+    <h3>ステップ1:エラー内容をコピー</h3>
+
+    <p>
+      ターミナルや画面に出たエラーメッセージを<strong>全部コピー</strong>。
+      一部だけじゃなく、<strong>全部</strong>コピーするのがコツ。
+    </p>
+
+    <h3>ステップ2:Claudeに貼って聞く</h3>
+
+<pre><code>以下のエラーが出た。原因と直し方を教えて。
+
+----
+[エラーメッセージをここに貼る]</code></pre>
+
+    <h3>ステップ3:提案された修正を適用</h3>
+
+    <p>
+      Claudeが「この行をこう直せばOK」と教えてくれる。
+      提案通り直せば、大抵直ります。
+    </p>
+
+    <h2>3. Claude Codeなら「丸投げ」できる</h2>
+
+    <p>
+      Claude Codeは、<strong>エラーを見てコードまで自動で直せる</strong>のが強み。
+    </p>
+
+<pre><code>script.py を実行したらエラーが出る。
+原因を調べて、直してほしい。
+バックアップは取ってから作業して。</code></pre>
+
+    <p>流れはこうなります。</p>
+
+    <ol>
+      <li>Claudeが <code>script.py</code> を実行</li>
+      <li>出たエラーを読む</li>
+      <li>原因を特定</li>
+      <li>修正案を提示(確認付き)</li>
+      <li>OK出したら修正</li>
+      <li>再度実行して、直ったか確認</li>
+    </ol>
+
+    <p>
+      これ全部、<strong>話しかけただけで進む</strong>。
+    </p>
+
+    <h2>4. よく出るエラーの種類と見分け方</h2>
+
+    <h3>タイプ1:ファイルが見つからない</h3>
+
+<pre><code>Error: File not found: /Users/me/report.txt</code></pre>
+
+    <p>→ ファイル名のタイプミス、またはファイルがそこに無い。</p>
+
+    <h3>タイプ2:書き方の間違い(構文エラー)</h3>
+
+<pre><code>SyntaxError: unexpected token ')'</code></pre>
+
+    <p>→ プログラムの書き方が間違ってる。カッコの閉じ忘れとか。</p>
+
+    <h3>タイプ3:権限がない</h3>
+
+<pre><code>Permission denied</code></pre>
+
+    <p>→ そのファイル・フォルダにアクセスする権限がない。</p>
+
+    <h3>タイプ4:通信エラー</h3>
+
+<pre><code>Connection timeout</code></pre>
+
+    <p>→ ネット接続の問題、または相手のサーバーが落ちてる。</p>
+
+    <h3>タイプ5:ライブラリ(部品)が無い</h3>
+
+<pre><code>ModuleNotFoundError: No module named 'pandas'</code></pre>
+
+    <p>→ 必要な部品ソフトが入ってない。インストール必要。</p>
+
+    <p>
+      <strong>どのタイプか</strong>分かれば、対処法もだいたい見えます。
+      Claudeに聞けば、タイプを判別して直してくれます。
+    </p>
+
+    <h2>5. エラー調査の頼み方テンプレ</h2>
+
+<pre><code>以下のエラーについて、次の形で回答して。
+
+1. エラーの意味(1〜2行で)
+2. 原因として考えられること(可能性の高い順に3つ)
+3. 直し方(Step by Step)
+4. 今後同じエラーを防ぐコツ
+
+----
+[エラーメッセージ]</code></pre>
+
+    <p>
+      この型で聞くと、<strong>理由まで理解</strong>できるので、同じミスを繰り返しません。
+    </p>
+
+    <h2>6. Claudeも困る時の対処</h2>
+
+    <p>
+      たまにClaudeも、一発で直せない時があります。そんな時はこんな風に聞き直す。
+    </p>
+
+    <h3>アプローチ1:情報を追加する</h3>
+
+<pre><code>さっきの直し方だとこういうエラーが新しく出た。
+[新しいエラー]
+
+環境情報も載せる:
+- OS: macOS 14
+- Python: 3.11
+- ◯◯のバージョン: 2.0</code></pre>
+
+    <h3>アプローチ2:ネット検索を頼む</h3>
+
+<pre><code>このエラー、自分だけの問題じゃないかも。
+ネットで同じエラーの事例を調べて、解決例を教えて。</code></pre>
+
+    <p>
+      Claude Codeはネット検索もできるので、最新のエラー情報を探してくれます。
+    </p>
+
+    <h3>アプローチ3:別角度で調べる</h3>
+
+<pre><code>いったん修正やめて。
+
+このエラーが出る前と後で、何が変わったか。
+直近で私がいじったファイルは何か。
+
+時系列で整理してから、もう一度原因を考えて。</code></pre>
+
+    <h2>7. ログ(履歴)から調査する</h2>
+
+    <p>
+      プログラムが動いた時に残る「ログ(履歴)」を見ると、エラーの謎が解けることがあります。
+    </p>
+
+<pre><code>logs/ フォルダにあるログファイルを全部見て、
+エラー発生の1時間前から、何が起きてたか時系列で教えて。</code></pre>
+
+    <p>
+      大量のログでも、Claudeが必要な情報だけ抜き出してくれます。
+    </p>
+
+    <h2>8. 実例:ホームページ直しのエラー対応</h2>
+
+    <p>想定:自分で作ったホームページに手を入れたら、レイアウトが崩れた。</p>
+
+<pre><code>さっきindex.htmlを編集したら、画面の真ん中がズレた。
+
+- 症状:文字が右に寄って、画像が消えた
+- 最後にいじったのは、index.htmlの30行目あたりのCSS
+
+何が起きてるか調べて、直して。
+直す前に何がおかしいか先に説明して。</code></pre>
+
+    <p>
+      Claudeが:
+    </p>
+
+    <ol>
+      <li>index.htmlを開いて該当箇所を見る</li>
+      <li>CSSの書き方を確認</li>
+      <li>何が悪いか説明</li>
+      <li>直し方を提案</li>
+      <li>OK出したら修正</li>
+    </ol>
+
+    <h2>9. やってみよう</h2>
+
+    <p>
+      実際のエラーが無いと練習しづらいので、<strong>わざとエラーを起こして</strong>直す練習をしましょう。
+    </p>
+
+    <ol>
+      <li>練習フォルダに、<code>test.py</code> というファイルを作る</li>
+      <li>中身に <code>print("こんにちは"</code> と書く(カッコ閉じ忘れ)</li>
+      <li>ターミナルで <code>python test.py</code> を実行 → エラーが出る</li>
+      <li>エラーをコピーしてClaudeに渡す</li>
+      <li>直してもらう</li>
+      <li>直った後に「なぜそうなったか」も説明してもらう</li>
+    </ol>
+
+    <div class="tip">
+      エラー対応は、使えば使うほど上手くなります。
+      「エラー出た!ラッキー、勉強のチャンス」くらいの気持ちで向き合いましょう。
+    </div>
+
+  </div>
+
+  <aside class="summary">
+    <div class="summary__title">この回のまとめ</div>
+    <ul>
+      <li>エラーは敵じゃない。「ヒント」</li>
+      <li>エラーメッセージは全文コピーしてClaudeに渡す</li>
+      <li>Claude Codeは、エラーを見て自動で直すところまでできる</li>
+      <li>「原因・直し方・再発防止」まで聞くと理解が深まる</li>
+      <li>ネット検索・ログ調査も頼める</li>
+    </ul>
+  </aside>
+
+  <nav class="lesson-nav">
+    <a href="03.html" class="prev">
+      <span class="lesson-nav__dir">◀ 前の回</span>
+      <span class="lesson-nav__title">LESSON 03 — ファイルを読ませる・書かせる</span>
+    </a>
+    <a href="05.html" class="next">
+      <span class="lesson-nav__dir">次の回 ▶</span>
+      <span class="lesson-nav__title">LESSON 05 — 自分用にカスタマイズ</span>
+    </a>
+  </nav>
+
+</article>
+
+<footer class="site-footer">
+  <div class="site-footer__links">
+    <a href="../index.html">トップ</a>
+    <a href="../index.html#cowork">アプリ編</a>
+    <a href="../index.html#code">パソコン編</a>
+  </div>
+  <p>&copy; Claudeまるわかり講座</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LESSON 01 Claude Codeって何? 入れてみる — Claudeまるわかり講座</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="site-header__logo"><a href="../index.html">Claude<span>まるわかり</span>講座</a></div>
+    <nav class="site-header__nav">
+      <a href="../index.html#intro">導入</a>
+      <a href="../index.html#cowork">アプリ編</a>
+      <a href="../index.html#code">パソコン編</a>
+    </nav>
+  </div>
+</header>
+
+<article class="lesson code">
+
+  <div class="lesson__breadcrumb">
+    <a href="../index.html">トップ</a> ＞ <a href="../index.html#code">パソコン編</a> ＞ LESSON 01
+  </div>
+
+  <span class="lesson__tag code">CODE 01</span>
+  <h1 class="lesson__title">Claude Codeって何?<br>入れてみる</h1>
+  <div class="lesson__meta">
+    <span>所要時間:約30分</span>
+    <span>レベル:導入</span>
+    <span>必要なもの:パソコン(Mac/Windows/Linux)+Claudeアカウント</span>
+  </div>
+
+  <div class="goal-box">
+    <div class="goal-box__title">この回のゴール</div>
+    <ul>
+      <li>Claude Codeが何者か、アプリ版と何が違うのかが分かる</li>
+      <li>自分のパソコンにClaude Codeをインストールできる</li>
+      <li>起動して、最初の「Hello」を打てる</li>
+    </ul>
+  </div>
+
+  <div class="lesson__body">
+
+    <h2>1. Claude Codeって何?</h2>
+
+    <p>
+      Claude Code(クロードコード)は、<strong>自分のパソコンに直接インストールして使うClaude</strong>です。
+      アプリ版(<code>claude.ai</code>)はブラウザで動きますが、Claude Codeは<strong>パソコン上のツール</strong>として動きます。
+    </p>
+
+    <h3>アプリ版と何が違う?</h3>
+
+    <p>一番の違いは——<strong>「自分のパソコンのファイルを直接いじれる」</strong>こと。</p>
+
+    <ul>
+      <li>アプリ版:ブラウザの中で会話するだけ。ファイルは渡して読んでもらう</li>
+      <li>Claude Code:パソコンのファイル・フォルダを直接読み書き・編集できる</li>
+    </ul>
+
+    <p>
+      イメージは、<strong>「自分のパソコンに、優秀な助手が住み着いた」</strong>感じ。
+      「このフォルダの中の写真を全部整理して」「この報告書を修正して」と頼めば、その場で実行してくれます。
+    </p>
+
+    <h3>プログラマーじゃないけど、使える?</h3>
+
+    <p>
+      <strong>使えます</strong>。もともとはプログラマー向けに作られましたが、やれることはコードの世界に限りません。
+    </p>
+
+    <ul>
+      <li>大量のExcelファイルの集計・整理</li>
+      <li>PDFや画像のフォルダ単位での処理</li>
+      <li>毎日の定型作業の自動化</li>
+      <li>ホームページの修正</li>
+      <li>もちろん、プログラムも書ける</li>
+    </ul>
+
+    <p>事務作業がメインの人でも、十分使う価値があります。</p>
+
+    <h2>2. 何ができるの?(例)</h2>
+
+    <h3>事務系</h3>
+    <ul>
+      <li>「このフォルダのPDF100枚、全部表にまとめて」</li>
+      <li>「Excelファイル10個分のデータを統合して、1つのファイルにして」</li>
+      <li>「フォルダ名を、日付+案件名の形式に全部リネームして」</li>
+      <li>「同じ内容のメールを、宛先リストにある30人に送信(下書き保存)」</li>
+    </ul>
+
+    <h3>制作系</h3>
+    <ul>
+      <li>「このホームページの見た目を、もう少しスッキリした感じに直して」</li>
+      <li>「写真をまとめたスライドショー(HTML)を作って」</li>
+      <li>「ブログ記事の画像を、全部Webに最適なサイズに変換して」</li>
+    </ul>
+
+    <h3>開発系</h3>
+    <ul>
+      <li>「バグを直して」「テストを書いて」「ドキュメント作って」</li>
+      <li>完全なプログラマー作業まで全部こなせる</li>
+    </ul>
+
+    <h3>自動化系</h3>
+    <ul>
+      <li>「毎朝9時にニュースを集めて、メールで送る仕組みを作って」</li>
+      <li>「定期的にホームページのバックアップを取る」</li>
+    </ul>
+
+    <h2>3. インストールする前の準備</h2>
+
+    <p>インストールには、いくつか準備がいります。</p>
+
+    <h3>必要なもの</h3>
+
+    <ul>
+      <li><strong>パソコン</strong>:Mac/Windows/Linux、どれでもOK</li>
+      <li><strong>インターネット接続</strong>:常時使う</li>
+      <li><strong>Claudeアカウント</strong>:LESSON 01(アプリ編)で作ったやつ</li>
+      <li><strong>Claude Pro以上の有料プラン</strong>:無料でも試せるが、本格利用なら推奨</li>
+    </ul>
+
+    <h3>パソコンのスペック</h3>
+
+    <p>重たいソフトじゃないので、普通のパソコンでOK。</p>
+    <ul>
+      <li>メモリ:8GBあれば快適(4GBでも動く)</li>
+      <li>ストレージ:数百MB空きがあれば十分</li>
+    </ul>
+
+    <h2>4. インストール手順(Mac/Windows/Linux共通)</h2>
+
+    <p>
+      Claude Codeは「ターミナル」や「コマンドプロンプト」と呼ばれる、<strong>黒い画面のツール</strong>にインストールします。
+      ちょっとビビる見た目ですが、やることは簡単です。
+    </p>
+
+    <h3>手順1:ターミナルを開く</h3>
+
+    <ul>
+      <li><strong>Mac</strong>:Launchpad → 「ターミナル」で検索</li>
+      <li><strong>Windows</strong>:スタートメニュー → 「PowerShell」または「ターミナル」</li>
+      <li><strong>Linux</strong>:Ctrl+Alt+T</li>
+    </ul>
+
+    <div class="img-placeholder">スクリーンショット:MacのターミナルとWindowsのPowerShellの起動画面</div>
+
+    <h3>手順2:インストールする(2つの方法から選ぶ)</h3>
+
+    <div class="tip">
+      方法は2つ。<strong>自分が楽なほうでOK</strong>。パソコン慣れてない人は「方法A」が無難。
+    </div>
+
+    <h4>方法A:公式サイトからインストーラーをダウンロード(おすすめ)</h4>
+
+    <p>
+      ブラウザで <a href="https://claude.com/claude-code" target="_blank">claude.com/claude-code</a> を開いて、
+      自分のOS(Mac/Windows)のインストーラーをダウンロード → ダブルクリックで入れる。
+      普通のアプリのインストールと同じ感覚です。
+    </p>
+
+    <h4>方法B:コマンドで一発</h4>
+
+    <p>ターミナルに、次の1行をコピペして、Enter。</p>
+
+<pre><code>npm install -g @anthropic-ai/claude-code</code></pre>
+
+    <div class="warn">
+      方法Bには<strong>Node.js(ノードジェイエス)</strong>というソフトが必要です。
+      もし「npm not found」と出たら、それが入ってないサイン。
+      <a href="https://nodejs.org/ja" target="_blank">nodejs.org</a> から「LTS版(長く使える安定版)」をダウンロードしてインストール。
+      その後、ターミナルを一度閉じて開き直し、上のコマンドを再度実行。
+      <strong>よく分からなくなったら、方法Aに切り替えて大丈夫</strong>。
+    </div>
+
+    <h3>手順3:起動する</h3>
+
+<pre><code>claude</code></pre>
+
+    <p>これでClaude Codeが立ち上がります。</p>
+
+    <h3>手順4:ログインする</h3>
+
+    <p>
+      初回起動時、ログインを求められます。
+      画面の案内にしたがって、ブラウザが立ち上がったら、自分のClaudeアカウントでログイン。
+    </p>
+
+    <p>
+      準備完了。<strong>自分のパソコンで、Claude Codeが動き始めた</strong>状態です。
+    </p>
+
+    <h2>5. はじめての会話</h2>
+
+    <p>
+      ターミナルに、こう打って送信してみてください。
+    </p>
+
+<pre><code>こんにちは。自己紹介して。
+今いるフォルダに何があるか教えて。</code></pre>
+
+    <p>
+      Claudeがパソコンのフォルダを覗いて、中身を教えてくれます。
+      <strong>アプリ版との違いを、ここで初めて体感</strong>します。
+    </p>
+
+    <div class="img-placeholder">スクリーンショット:ターミナル画面でClaudeが自己紹介してフォルダ内容を返している様子</div>
+
+    <h2>6. 最初につまずきやすいポイント</h2>
+
+    <h3>つまずき1:「どこで動いてるか」が分からない</h3>
+
+    <p>
+      Claude Codeは、<strong>「ターミナルを開いた時点の場所(フォルダ)」</strong>で動きます。
+      例えばデスクトップのフォルダで動かしたければ:
+    </p>
+
+<pre><code>cd ~/Desktop/myproject
+claude</code></pre>
+
+    <p>
+      これで、そのフォルダの中で作業してくれます。
+    </p>
+
+    <h3>つまずき2:「許可を求められた」</h3>
+
+    <p>
+      Claudeがファイルを書き換えようとすると、<strong>「これやっていい?」と聞いてくる</strong>ことがあります。
+      一つずつ確認して、OKなら「yes」と返事する。
+      慣れるまでは、<strong>一回一回確認する設定</strong>で使うのがおすすめ。
+    </p>
+
+    <h3>つまずき3:変なことを言ってる</h3>
+
+    <p>
+      アプリ版と同じで、たまに間違えます。
+      特に<strong>ファイル操作系のミス</strong>は影響が大きいので、
+      <strong>バックアップを取ってから</strong>大きな作業を頼むのが鉄則。
+    </p>
+
+    <div class="warn">
+      大事なファイルは、Claude Codeに頼む前に<strong>別の場所にコピーを取る</strong>。
+      「フォルダのファイル名全部変えて」で、やり直せない書き換えをされるのが最悪のパターン。
+    </div>
+
+    <h2>7. 終了のしかた</h2>
+
+    <p>
+      Claude Codeを閉じるには、ターミナルで:
+    </p>
+
+<pre><code>/exit</code></pre>
+
+    <p>
+      もしくは、Ctrl+D、Ctrl+C で抜けられます。
+      会話の履歴は保存されていて、次回起動時に続きから始められます。
+    </p>
+
+    <h2>8. 料金について</h2>
+
+    <p>料金は、基本的にアプリ版と共通の枠です。</p>
+
+    <ul>
+      <li>Claude Code自体は<strong>無料でインストール</strong>できる</li>
+      <li>動作には、Claudeアカウントが必要</li>
+      <li>無料プランでもちょっとは使えるが、ヘビーに使うなら<strong>Pro(月約3,000円)</strong>推奨</li>
+      <li>たくさん使う人向けには<strong>Max</strong>という上位プランもあり(月15,000円か月30,000円の2段階、為替で多少変動)</li>
+    </ul>
+
+    <h2>9. やってみよう</h2>
+
+    <ol>
+      <li>ターミナル/PowerShellを開いてclaude起動まで進める</li>
+      <li>「こんにちは」と打って、返事をもらう</li>
+      <li>「今いるフォルダの中身を一覧にして」と頼んでみる</li>
+      <li>問題なく動いたら、このLESSONはクリア</li>
+    </ol>
+
+    <div class="tip">
+      ここまで来た時点で、もう「プログラマーの世界」の入り口に立っています。
+      次回からは、実際の作業をClaudeに任せる方法を学んでいきます。
+    </div>
+
+  </div>
+
+  <aside class="summary">
+    <div class="summary__title">この回のまとめ</div>
+    <ul>
+      <li>Claude Codeは、パソコンに直接入れるClaude</li>
+      <li>一番の特徴は「パソコンのファイルを直接いじれる」こと</li>
+      <li>ターミナル/PowerShellから <code>npm install -g @anthropic-ai/claude-code</code> でインストール</li>
+      <li><code>claude</code> で起動、<code>/exit</code> で終了</li>
+      <li>ファイル操作の前には必ずバックアップ</li>
+    </ul>
+  </aside>
+
+  <nav class="lesson-nav">
+    <a href="../cowork/08.html" class="prev">
+      <span class="lesson-nav__dir">◀ 前の回(アプリ編最終回)</span>
+      <span class="lesson-nav__title">LESSON 08 — 実際の仕事に使う</span>
+    </a>
+    <a href="02.html" class="next">
+      <span class="lesson-nav__dir">次の回 ▶</span>
+      <span class="lesson-nav__title">LESSON 02 — 話しかけて動かしてみる</span>
+    </a>
+  </nav>
+
+</article>
+
+<footer class="site-footer">
+  <div class="site-footer__links">
+    <a href="../index.html">トップ</a>
+    <a href="../index.html#cowork">アプリ編</a>
+    <a href="../index.html#code">パソコン編</a>
+  </div>
+  <p>&copy; Claudeまるわかり講座</p>
+</footer>
+
+</body>
+</html>
