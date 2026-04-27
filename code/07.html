@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LESSON 07 外のアプリとつなぐ — Claudeまるわかり講座</title>
+<title>LESSON 07 Obsidianとつなぐ（MCP連携） — Claudeまるわかり講座</title>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -12,9 +12,8 @@
   <div class="site-header__inner">
     <div class="site-header__logo"><a href="../index.html">Claude<span>まるわかり</span>講座</a></div>
     <nav class="site-header__nav">
-      <a href="../index.html#intro">導入</a>
-      <a href="../index.html#cowork">アプリ編</a>
-      <a href="../index.html#code">パソコン編</a>
+      <a href="../index.html#cowork">Cowork</a>
+      <a href="../index.html#code">Claude Code</a>
     </nav>
   </div>
 </header>
@@ -22,284 +21,173 @@
 <article class="lesson code">
 
   <div class="lesson__breadcrumb">
-    <a href="../index.html">トップ</a> ＞ <a href="../index.html#code">パソコン編</a> ＞ LESSON 07
+    <a href="../index.html">トップ</a> ＞ Claude Code ＞ LESSON 07
   </div>
 
   <span class="lesson__tag code">CODE 07</span>
-  <h1 class="lesson__title">外のアプリと<br>つなぐ</h1>
+  <h1 class="lesson__title">Obsidianとつなぐ<br>（MCP連携）</h1>
   <div class="lesson__meta">
-    <span>所要時間:約30分</span>
-    <span>レベル:連携</span>
-    <span>必要なもの:Claude Code + 連携したいサービスのアカウント</span>
+    <span>所要時間：約15分</span>
+    <span>レベル：応用</span>
   </div>
 
   <div class="goal-box">
     <div class="goal-box__title">この回のゴール</div>
     <ul>
-      <li>Claude Codeを外部アプリ(Gmail/Notion等)とつなぐ仕組みを知る</li>
-      <li>MCPという接続規格を理解する(名前だけでOK)</li>
-      <li>自分の仕事ツール1つを、Claude Codeと接続できる</li>
+      <li>MCPとは何かを、比喩でわかる</li>
+      <li>ClaudeとObsidianをつないで、ノートを読み書きできる</li>
+      <li>他にどんなツールとつなげるかを知る</li>
     </ul>
   </div>
 
   <div class="lesson__body">
 
-    <h2>1. アプリ編の「連携」との違い</h2>
+    <h2>1. MCPって何？　「コンセント」で考える</h2>
 
     <p>
-      アプリ編のLESSON 05で、Claude.aiとGmail・Slackの連携を学びました。
-      Claude Codeでも同じように、外部サービスとつなげます。
+      MCP（Model Context Protocol）というのは、Claudeが外のアプリと話すための「コンセント」です。
     </p>
 
     <p>
-      この接続の仕組みを、<strong>「MCP(エムシーピー)」</strong>と呼びます。
-      専門用語なので、<strong>「外の道具につなぐためのコンセント規格」</strong>くらいに思っておけばOK。
+      電化製品はコンセントに差し込めば動きますよね。
+      形が合ってさえいれば、どんな製品でも電気が使える。
+      MCPはそれと同じです。
     </p>
 
     <blockquote>
-      家電の「プラグ」みたいなもの。
-      どんなアプリでも、MCP対応のプラグがあれば、Claude Codeに差し込める。
+      MCP = Claudeがいろんなアプリに「差し込める」コンセント。<br>
+      差し込んだアプリのデータを、Claudeが読んだり書いたりできるようになる。
     </blockquote>
 
-    <h2>2. つなげられるアプリ</h2>
+    <p>
+      コンセントが無いと、Claude Codeはパソコンの中にあるファイルしか触れません。
+      MCPをつなぐと、ObsidianのノートもGmailも、Claudeが直接操作できるようになります。
+    </p>
 
-    <p>2026年現在、主要なサービスはほぼ対応しています。</p>
+    <h2>2. ObsidianにClaudeをつなぐとどうなるか</h2>
 
-    <h3>コミュニケーション</h3>
+    <p>
+      Obsidianは「ノートをたくさん書き溜めるアプリ」です。
+      MCPでつなぐと、Claude Codeがそのノートを全部読めるようになります。
+    </p>
+
+    <h3>できるようになること</h3>
     <ul>
-      <li>Gmail</li>
-      <li>Slack</li>
-      <li>Microsoft Teams</li>
-      <li>Discord</li>
-    </ul>
-
-    <h3>ドキュメント・ファイル</h3>
-    <ul>
-      <li>Notion</li>
-      <li>Googleドライブ</li>
-      <li>OneDrive</li>
-      <li>Dropbox</li>
-    </ul>
-
-    <h3>タスク・プロジェクト管理</h3>
-    <ul>
-      <li>Linear</li>
-      <li>Jira</li>
-      <li>Asana</li>
-      <li>Trello</li>
-    </ul>
-
-    <h3>データ・開発系</h3>
-    <ul>
-      <li>GitHub</li>
-      <li>Supabase、Firebase</li>
-      <li>PostgreSQL、MySQLなどのデータベース</li>
-    </ul>
-
-    <h3>ビジネスツール</h3>
-    <ul>
-      <li>HubSpot(顧客管理)</li>
-      <li>Stripe(決済)</li>
-      <li>Salesforce</li>
+      <li>「昨日のメモをまとめて」と言ったら、Obsidianのノートを探してまとめてくれる</li>
+      <li>「このキーワードが出てくるノートを全部見せて」で横断検索できる</li>
+      <li>「今日の日記を書いておいて」でノートを自動作成できる</li>
+      <li>「バラバラなメモを整理してフォルダに分けて」が一発でできる</li>
     </ul>
 
     <p>
-      <strong>新しいMCPは毎月増えています</strong>。自分が使いたいサービス名+「MCP」で検索するとだいたいあります。
+      自分の脳みそ（Obsidian）とClaude、両方の力を合わせる感じです。
     </p>
 
-    <h2>3. 接続する前に:APIキーって何?</h2>
-
-    <p>
-      接続する前に、1つだけ用語を覚えてください。「<strong>APIキー</strong>」です。
-    </p>
-
-    <div class="tip">
-      <strong>APIキー</strong>とは——「あなたの代わりにそのアプリを操作していいですよ」という<strong>秘密の合鍵</strong>。
-      家の鍵と同じで、人に渡すと勝手に使われるので、厳重に管理します。
-      Claude Codeを接続する時は、この合鍵を発行して渡してあげる必要があります。
-    </div>
-
-    <h2>4. 接続の手順(基本の流れ)</h2>
-
-    <h3>ステップ1:どのアプリとつなぐか決める</h3>
-
-    <p>最初は<strong>1つだけ</strong>にしましょう。自分が一番使うやつを選ぶ。</p>
-
-    <h3>ステップ2:そのアプリでAPIキー(合鍵)を発行する</h3>
-
-    <p>
-      例えばNotionなら、Notion側の設定画面で「インテグレーション」→「新規作成」→APIキーをコピー。
-      手順が分からなければClaudeに聞けば案内してくれます。
-    </p>
-
-<pre><code>Notionと接続したい。
-Notion側でAPIキー(合鍵)を発行する手順を、画面を見ながら教えて。</code></pre>
-
-    <h3>ステップ3:Claude Codeに登録する(<code>claude mcp add</code>)</h3>
-
-    <p>
-      ターミナルに戻って、Claude Code起動中に以下を打ちます。
-    </p>
-
-<pre><code>/mcp</code></pre>
-
-    <p>
-      または、起動前にターミナルで直接:
-    </p>
-
-<pre><code>claude mcp add notion</code></pre>
-
-    <p>
-      聞かれる指示に沿って、さっきコピーしたAPIキーを貼り付け。これで登録完了。
-      全部Claudeに頼むならこう:
-    </p>
-
-<pre><code>Notion接続のMCPを追加したい。
-claude mcp add notion コマンドの使い方を教えて、
-手順を順番に案内して。APIキーは [ここに貼る]。</code></pre>
-
-    <h3>ステップ4:Claude Codeを再起動</h3>
-
-    <p>一度 <code>/exit</code> で抜けて、もう一回 <code>claude</code> で起動すれば、接続が有効になります。</p>
-
-    <h3>ステップ5:試しに呼び出す</h3>
-
-<pre><code>Notionの「仕事」ワークスペースで、
-今週更新されたページを全部見せて。</code></pre>
-
-    <div class="img-placeholder">スクリーンショット:Claude CodeでNotionに接続した直後の画面</div>
-
-    <h2>5. 具体例:GitHub接続</h2>
-
-    <p>
-      開発者なら、GitHubとの接続は必須級。
-      ソースコード、Issue、Pull Requestを全部扱えるようになります。
-    </p>
-
-    <h3>できること</h3>
-
-    <ul>
-      <li>「自分のGitHubにある、今週更新されたリポジトリを一覧で」</li>
-      <li>「このIssue一覧を、優先度別に整理して」</li>
-      <li>「最新のPull Requestの変更点を要約」</li>
-      <li>「このリポジトリに、新しいIssueを作って(内容はこれ)」</li>
-    </ul>
-
-    <h2>6. 具体例:Google Drive接続</h2>
-
-    <h3>できること</h3>
-
-    <ul>
-      <li>「Driveの『提案書』フォルダにあるPDFを全部読んで、要約一覧を作って」</li>
-      <li>「先月作ったドキュメントで、タイトルに『A社』が入ってるものを探して」</li>
-      <li>「新しいGoogleドキュメントを作成して、内容はこれ。タイトルは◯◯」</li>
-    </ul>
-
-    <h2>7. 具体例:Slack接続</h2>
-
-    <h3>できること</h3>
-
-    <ul>
-      <li>「#営業チャンネルの今週の動きを、時系列で要約して」</li>
-      <li>「自分宛てのDMで返信必要なもの、全部ピックアップ」</li>
-      <li>「新しいメッセージをチャンネルに投稿(内容はこれ、送信前に確認)」</li>
-    </ul>
-
-    <h2>8. 接続する前の注意事項</h2>
-
-    <div class="warn">
-      外部アプリとつなぐ = <strong>そのアプリの中身をClaudeが読める</strong>ということ。
-      会社のアカウントを使う時は、必ず会社の規定・上司の許可を取ってください。
-    </div>
-
-    <h3>APIキーの扱い</h3>
-
-    <ul>
-      <li>APIキーは<strong>絶対に他人に見せない</strong>。Xのポストにスクショ貼る、みたいな事故に注意</li>
-      <li>GitHubなどに設定ファイルを上げる時は、APIキーを含めない工夫を(Claudeに相談)</li>
-      <li>使わない接続は切っておく</li>
-    </ul>
-
-    <h3>権限の絞り込み</h3>
-
-    <p>
-      APIキーを発行する時は、<strong>必要最小限の権限</strong>にする。
-      「全権限」ではなく「読み取り専用」「特定のチャンネルだけ」などに絞る。
-    </p>
-
-    <h2>9. 使いこなしのコツ</h2>
-
-    <h3>コツ1:1つ接続したら、まず1週間使い倒す</h3>
-
-    <p>
-      いっぺんに5個も6個もつなげても、使いきれない。
-      1つずつ増やして、それぞれの使いどころを自分で見つけるのが最短。
-    </p>
-
-    <h3>コツ2:接続情報はメモしておく</h3>
-
-    <p>
-      「何を、どこに、どう接続したか」を別のファイルにメモ。
-      後で見直しやすくなります。
-    </p>
-
-    <h3>コツ3:定期的に見直す</h3>
-
-    <p>
-      月1回くらい、接続一覧を見て「使ってないやつ」は外す。
-      セキュリティ的にもスッキリします。
-    </p>
-
-    <h2>10. よくある疑問</h2>
-
-    <h3>Q. APIキーって何?どこでもらう?</h3>
-    <p>A. 各サービスの「開発者設定」か「API設定」で発行できます。Claudeに「Notionで読み取り用のAPIキーを発行する手順教えて」と聞けば、詳しく教えてくれます。</p>
-
-    <h3>Q. 全部自分で設定しないとダメ?</h3>
-    <p>A. 基本は自分で設定(APIキー取得→設定ファイル記入→動作確認)。でも、Claudeが全工程を案内してくれるので、実質的には「Claudeに聞きながらやる」だけ。</p>
-
-    <h3>Q. 接続を切りたい時は?</h3>
-    <p>A. <code>claude mcp remove notion</code> のように、接続名を指定して外せます。「Notion接続を切って」とClaudeに頼めば、コマンドまで自動で実行してくれます。</p>
-
-    <h3>Q. 無料でやれる範囲は?</h3>
-    <p>A. 多くのサービスは無料枠があります(GitHub、Notion等)。ただし大量に使うなら有料プランも検討。</p>
-
-    <h2>11. やってみよう</h2>
+    <h2>3. つなぐ手順（3ステップ）</h2>
 
     <ol>
-      <li>自分が<strong>週3回以上使うツール</strong>を1つ選ぶ(Notion/GitHub/Gmail等)</li>
-      <li>Claude Codeに「そのツールとつなぐ手順を教えて」と聞く</li>
-      <li>ガイドに沿って接続設定</li>
-      <li>接続後、試しに1つデータを取得してみる</li>
-      <li>問題なければ、日常業務に組み込む</li>
+      <li>MCPサーバーの設定ファイルを用意する</li>
+      <li>Claude Codeの設定にそのサーバーを追加する</li>
+      <li>「このObsidianフォルダを読んで」で動作確認する</li>
     </ol>
 
+    <h3>ステップ1：設定ファイルの中身（例）</h3>
+<pre><code>{
+  "mcpServers": {
+    "obsidian": {
+      "command": "npx",
+      "args": ["-y", "mcp-obsidian"],
+      "env": {
+        "VAULT_PATH": "C:/Users/yourname/Documents/MyVault"
+      }
+    }
+  }
+}</code></pre>
+
+    <p>
+      <code>VAULT_PATH</code> の部分を、自分のObsidianのフォルダのパスに変えます。
+      「パスって何」という人はClaudeに「ObsidianのVaultフォルダのパスを調べて」と聞けば教えてくれます。
+    </p>
+
+    <h3>ステップ2：Claude Codeに追加する</h3>
+<pre><code>この設定ファイルをClaude Codeに追加する手順を教えて。
+Obsidianと連携させたい。</code></pre>
+
+    <p>
+      Claudeがステップバイステップで案内してくれます。
+    </p>
+
+    <h3>ステップ3：動作確認</h3>
+<pre><code>ObsidianのVaultにある「日記」フォルダを読んで、
+最近書いたノートのタイトルを10件見せて。</code></pre>
+
+    <p>
+      これで一覧が出れば、つながっています。
+    </p>
+
     <div class="tip">
-      MCPによる外部接続は、Claude Codeを<strong>「単なるパソコンツール」から「仕事全体のハブ」</strong>に変えます。
-      ここまで来ると、「Claudeなしで仕事できない」ってなる人が多いです。
+      うまくいかないときは「MCPの接続でエラーが出てる。設定ファイルを確認して」とClaudeに伝えてください。
+      設定ファイルの書き間違いが多いので、Claudeが見つけてくれます。
     </div>
+
+    <h2>4. Obsidian以外にもつなげるもの</h2>
+
+    <p>
+      MCPに対応したツールは、どんどん増えています。
+      代表的なものをまとめました。
+    </p>
+
+    <ul>
+      <li><strong>Gmail</strong>：メールを読む、返信を下書きする</li>
+      <li><strong>Googleドライブ</strong>：ドキュメントやスプレッドシートを操作する</li>
+      <li><strong>Slack</strong>：チャンネルのメッセージを読む、投稿する</li>
+      <li><strong>Notion</strong>：ページを読む、新しいページを作る</li>
+      <li><strong>GitHub</strong>：コードを読む、Issueを見る</li>
+    </ul>
+
+    <p>
+      全部をつなぐ必要はありません。
+      「これがClaudeと連携したら楽になる」と思うものから、一つずつ試してみましょう。
+    </p>
+
+    <h2>5. セキュリティの注意点</h2>
+
+    <div class="warn">
+      MCPをつなぐと、Claudeがそのアプリのデータにアクセスできるようとなります。
+      以下の点に注意してください。
+    </div>
+
+    <ul>
+      <li><strong>APIキーは人に見せない</strong>：設定ファイルにAPIキーを書いたら、そのファイルを他人に共有しない</li>
+      <li><strong>アクセス権限を絞る</strong>：「読み取りだけ」で十分なものに書き込み権限は与えない</li>
+      <li><strong>何がつながってるか把握する</strong>：つなぎすぎると管理が大変になる。必要なものだけに絞る</li>
+    </ul>
+
+    <p>
+      心配なときはClaudeに「今どのMCPがつながってるか確認して」と聞けば一覧で教えてくれます。
+    </p>
 
   </div>
 
   <aside class="summary">
     <div class="summary__title">この回のまとめ</div>
     <ul>
-      <li>MCPは、外部アプリとClaude Codeをつなぐ「コンセント規格」</li>
-      <li>Gmail/Slack/Notion/GitHubなど、主要サービスに対応</li>
-      <li><code>claude mcp add ◯◯</code> コマンド(または<code>/mcp</code>)で登録。Claudeが案内してくれる</li>
-      <li>APIキーは厳重管理。最小権限で発行</li>
-      <li>最初は1つだけ。1週間使い倒してから次を追加</li>
+      <li>MCP = Claudeが外のアプリと話すための「コンセント」</li>
+      <li>Obsidianにつなぐと、ノートの読み書き・整理・検索ができる</li>
+      <li>設定ファイルを用意してClaude Codeに追加するだけ</li>
+      <li>Gmail・Slack・Notion・GitHubなど、対応ツールは増え続けている</li>
+      <li>APIキーの管理と、アクセス権限の絞り込みを忘れずに</li>
     </ul>
   </aside>
 
   <nav class="lesson-nav">
     <a href="06.html" class="prev">
       <span class="lesson-nav__dir">◀ 前の回</span>
-      <span class="lesson-nav__title">LESSON 06 — ワンボタンで呼び出す機能を作る</span>
+      <span class="lesson-nav__title">LESSON 06 — 「毎日やってるこの作業、自動化して」が通じた</span>
     </a>
     <a href="08.html" class="next">
       <span class="lesson-nav__dir">次の回 ▶</span>
-      <span class="lesson-nav__title">LESSON 08 — 放置で自動で動かす</span>
+      <span class="lesson-nav__title">LESSON 08 — ゴールだけ伝えたら、手順から全部考えてやってくれた</span>
     </a>
   </nav>
 
@@ -308,8 +196,8 @@ claude mcp add notion コマンドの使い方を教えて、
 <footer class="site-footer">
   <div class="site-footer__links">
     <a href="../index.html">トップ</a>
-    <a href="../index.html#cowork">アプリ編</a>
-    <a href="../index.html#code">パソコン編</a>
+    <a href="../index.html#cowork">Cowork</a>
+    <a href="../index.html#code">Claude Code</a>
   </div>
   <p>&copy; Claudeまるわかり講座</p>
 </footer>

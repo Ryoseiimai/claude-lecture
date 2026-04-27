@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LESSON 06 ワンボタンで呼び出す機能を作る — Claudeまるわかり講座</title>
+<title>LESSON 06 「毎日やってるこの作業、自動化して」が通じた — Claudeまるわかり講座</title>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -12,9 +12,8 @@
   <div class="site-header__inner">
     <div class="site-header__logo"><a href="../index.html">Claude<span>まるわかり</span>講座</a></div>
     <nav class="site-header__nav">
-      <a href="../index.html#intro">導入</a>
-      <a href="../index.html#cowork">アプリ編</a>
-      <a href="../index.html#code">パソコン編</a>
+      <a href="../index.html#cowork">Cowork</a>
+      <a href="../index.html#code">Claude Code</a>
     </nav>
   </div>
 </header>
@@ -22,251 +21,133 @@
 <article class="lesson code">
 
   <div class="lesson__breadcrumb">
-    <a href="../index.html">トップ</a> ＞ <a href="../index.html#code">パソコン編</a> ＞ LESSON 06
+    <a href="../index.html">トップ</a> ＞ Claude Code ＞ LESSON 06
   </div>
 
   <span class="lesson__tag code">CODE 06</span>
-  <h1 class="lesson__title">ワンボタンで<br>呼び出す機能を作る</h1>
+  <h1 class="lesson__title">「毎日やってるこの作業、<br>自動化して」が通じた</h1>
   <div class="lesson__meta">
-    <span>所要時間:約30分</span>
-    <span>レベル:応用</span>
-    <span>必要なもの:Claude Codeインストール済み</span>
+    <span>所要時間：約15分</span>
+    <span>レベル：基本</span>
   </div>
 
   <div class="goal-box">
     <div class="goal-box__title">この回のゴール</div>
     <ul>
-      <li>よく使う作業を「スラッシュコマンド」で呼び出せるようにする</li>
-      <li>専門家キャラ「エージェント」を作れるようになる</li>
-      <li>自分だけの「ワンボタン機能集」を作れる</li>
+      <li>繰り返し作業を「言葉で説明」してスクリプトにできる</li>
+      <li>Claudeが書いたプログラムを安全に動かせる</li>
+      <li>Windowsで毎日自動で動かす仕組みを作れる</li>
     </ul>
   </div>
 
   <div class="lesson__body">
 
-    <h2>1. 毎回同じ指示、してない?</h2>
+    <h2>1. 自動化の考え方：手でやってることを言葉にするだけ</h2>
 
     <p>
-      Claude Codeを使っていると、「毎回同じ指示してるな」と気づく瞬間があります。
+      「自動化」というと難しそうに聞こえますが、考え方はシンプルです。
+      「今、自分が手でやっていることを、そのままClaudeに説明する」だけ。
     </p>
 
-    <ul>
-      <li>毎朝「今日のToDoを整理して」</li>
-      <li>週末に「今週の振り返りをして」</li>
-      <li>コード書いた後に「レビューして」</li>
-    </ul>
-
     <p>
-      これらを<strong>ワンボタンで呼び出せる</strong>ようにする仕組みが、「<strong>スラッシュコマンド</strong>」です。
+      プログラムの知識はいりません。
+      「毎朝これをやってる」という作業を普通の言葉で伝えれば、
+      Claudeがそれをやるプログラムを書いてくれます。
     </p>
 
     <blockquote>
-      <code>/朝ルーティン</code> と打つだけで、毎朝のToDoまとめが自動実行される。そんなイメージ。
+      プログラムを「書く」のではなく、「説明する」だけでいい。
     </blockquote>
 
-    <h2>2. スラッシュコマンドって何?</h2>
+    <h2>2. 実際に頼んでみる</h2>
+
+    <h3>例：ファイルの振り分け</h3>
+<pre><code>毎朝「受信」フォルダに新しいPDFファイルが届く。
+ファイル名に「請求書」が含まれるものは「請求書」フォルダに、
+「契約書」が含まれるものは「契約書」フォルダに移動させたい。
+
+これを自動でやるプログラムを作って。</code></pre>
+
+    <h3>例：日報ファイルの自動作成</h3>
+<pre><code>毎日の日報ファイルを自動で作りたい。
+「YYYY-MM-DD_日報.txt」という名前で、
+デスクトップの「日報」フォルダに作る。
+中身は「日付」「今日やったこと」「明日やること」の見出しだけ入ってる状態で。</code></pre>
+
+    <h3>例：定期バックアップ</h3>
+<pre><code>毎日夜、「仕事」フォルダ全体を
+「バックアップ/YYYYMMDD」フォルダにコピーしたい。
+古いバックアップは7日分だけ残して、それより古いのは自動で消して。</code></pre>
 
     <p>
-      Claude Codeの会話欄で、<code>/</code>(スラッシュ)から始まる言葉を打つと、登録した指示が実行される仕組み。
+      こういう言葉で伝えると、Claudeがプログラムを書いてくれます。
     </p>
 
-    <h3>最初から使えるコマンド</h3>
-
-    <p>Claude Codeには、最初からいくつか便利なコマンドがあります。</p>
-
-    <ul>
-      <li><code>/help</code> - ヘルプ</li>
-      <li><code>/clear</code> - 会話をリセット</li>
-      <li><code>/model</code> - 使うモデルの切り替え</li>
-      <li><code>/init</code> - CLAUDE.mdの自動生成</li>
-      <li><code>/config</code> - 設定変更</li>
-    </ul>
-
-    <h3>自分で作れる</h3>
-
-    <p>
-      これらに加えて、<strong>自分オリジナルのコマンドを追加</strong>できます。
-    </p>
-
-    <h2>3. スラッシュコマンドの作り方</h2>
-
-    <h3>保存場所</h3>
-
-    <ul>
-      <li><strong>プロジェクト限定</strong>:そのプロジェクトフォルダの中の <code>.claude/commands/</code></li>
-      <li><strong>全プロジェクト共通</strong>:<code>~/.claude/commands/</code> (ホーム下)</li>
-    </ul>
-
-    <h3>作り方(Claudeに頼む)</h3>
-
-<pre><code>「朝ルーティン」というスラッシュコマンドを作って。
-
-場所:~/.claude/commands/morning.md
-
-内容:
-- 今日の日付と曜日を教える
-- 今日のカレンダー予定を確認(もし接続があれば)
-- 未読メールの件数確認
-- 今日やるべきことを3つ提案
-
-日本語で、フレンドリーな口調で。</code></pre>
-
-    <p>
-      Claudeが <code>.md</code>ファイルを作ってくれて、次から <code>/morning</code> で呼び出せるようになります。
-    </p>
-
-    <h3>中身のフォーマット</h3>
-
-    <p>スラッシュコマンドは、単純なMarkdownファイル。</p>
-
-<pre><code># 朝のルーティン
-
-以下を順番にやってください。
-
-1. 今日の日付と曜日を教える
-2. 今日やるべきことを3つ提案(優先度順に)
-3. 励ましの一言
-</code></pre>
-
-    <h2>4. 使えるコマンド例10連発</h2>
-
-    <h3>日常系</h3>
-
-    <ul>
-      <li><code>/morning</code> — 朝のルーティン</li>
-      <li><code>/evening</code> — 1日の振り返り</li>
-      <li><code>/week-review</code> — 週末の振り返り</li>
-      <li><code>/focus</code> — 今から集中する内容を1つ決める</li>
-    </ul>
-
-    <h3>仕事系</h3>
-
-    <ul>
-      <li><code>/meeting-prep</code> — 会議前の準備(議題・資料確認)</li>
-      <li><code>/reply-mail</code> — メール返信の下書き作成</li>
-      <li><code>/proposal</code> — 提案書のフォーマット出力</li>
-      <li><code>/invoice</code> — 請求書のテンプレート生成</li>
-    </ul>
-
-    <h3>作業系</h3>
-
-    <ul>
-      <li><code>/review</code> — コードやドキュメントの見直し</li>
-      <li><code>/backup</code> — 今のフォルダをバックアップ(Git+コピー)</li>
-    </ul>
-
-    <h2>5. 「エージェント」も作れる</h2>
-
-    <p>
-      スラッシュコマンドは「命令」ですが、もう一歩進んだ仕組みとして<strong>「エージェント(専門家キャラ)」</strong>が作れます。
-    </p>
-
-    <h3>エージェントって?</h3>
-
-    <p>
-      特定の専門性を持ったClaudeのキャラクター、みたいなもの。
-      例えば:
-    </p>
-
-    <ul>
-      <li><strong>翻訳専門エージェント</strong>:とにかく翻訳だけ、フォーマットも統一</li>
-      <li><strong>コードレビュー専門エージェント</strong>:コードを厳しめにチェック</li>
-      <li><strong>文章校正エージェント</strong>:誤字・文法・読みやすさを指摘</li>
-      <li><strong>アイデア出しエージェント</strong>:自由な発想で量を出す</li>
-    </ul>
-
-    <p>
-      メインのClaudeとは別に、必要な時だけ呼び出せる<strong>「専門スタッフ」</strong>です。
-    </p>
-
-    <h3>作り方</h3>
-
-    <p>保存場所:<code>~/.claude/agents/名前.md</code></p>
-
-    <p>Claudeに頼んで作ります。</p>
-
-<pre><code>「校正マン」というエージェントを作って。
-
-場所:~/.claude/agents/koseiman.md
-
-役割:
-- プロの校正者として動く
-- 日本語の文章の誤字脱字・文法・言い回しをチェック
-- 改善案を3パターン出す
-
-性格:
-- 厳しめだけど愛がある
-- 理由を必ず添える</code></pre>
-
-    <h3>使い方</h3>
-
-    <p>作ったあとは、メイン会話で自然に呼び出すだけ。「◯◯エージェントで〜」と頼めば、Claudeが自動で連れてきてくれます。</p>
-
-<pre><code>校正マンエージェントで、以下の文章をチェックして。
-
-----
-[文章を貼る]</code></pre>
-
-    <p>
-      登録済みのエージェント一覧は <code>/agents</code> コマンドで見られます。
-      ここから編集・削除もできます。
-    </p>
-
-    <h2>6. 組み合わせ:最強の個人アシスタント</h2>
-
-    <p>
-      スラッシュコマンド + エージェントを組み合わせると、<strong>自分だけの個人アシスタント</strong>ができあがります。
-    </p>
-
-    <h3>例:ライターのAさんのセット</h3>
-
-    <ul>
-      <li><code>/article-plan</code> — 記事の構成を考えるコマンド</li>
-      <li><code>/article-draft</code> — ドラフト生成のコマンド</li>
-      <li><strong>校正マン</strong>エージェント — 最終チェック用</li>
-      <li><strong>タイトルマン</strong>エージェント — キャッチーなタイトル案を出す</li>
-    </ul>
-
-    <p>
-      こうなると、<strong>記事1本作る流れが全部コマンド化</strong>できます。
-    </p>
-
-<pre><code>/article-plan 副業の税金対策について
-# → 構成が出る
-
-/article-draft
-# → 構成を元にドラフトが出る
-
-校正マンエージェントでドラフトをチェック
-# → 修正案を出す
-
-タイトルマンエージェントでタイトル案5つ
-# → 魅力的な候補が並ぶ</code></pre>
-
-    <h2>7. コツ:最初は「よく使うやつ」だけ</h2>
-
-    <p>
-      最初から大量のコマンドを作ろうとしないこと。
-      <strong>週に3回以上使う作業</strong>を1〜2個選んで、まずそれだけコマンド化。
-    </p>
-
-    <p>
-      「これ、コマンドにしたほうが楽」と思ったら、そのタイミングで追加する。
-      気づいたら10個、20個と育っていくのが理想です。
-    </p>
-
-    <h2>8. やってみよう</h2>
+    <h2>3. 動かすまでの流れ</h2>
 
     <ol>
-      <li>自分の仕事で<strong>週3回以上</strong>やってる作業を1つ思い出す</li>
-      <li>Claudeに「この作業をスラッシュコマンドにして」と頼む</li>
-      <li>作ったあと、実際に <code>/コマンド名</code> で呼び出して試す</li>
-      <li>動きを見て、調整したければコマンドファイルを直接編集</li>
+      <li>Claudeがプログラム（スクリプト）を書く</li>
+      <li>「まずテスト用フォルダで試して」と安全確認を指示する</li>
+      <li>問題なければ「本番フォルダで動かして」と指示</li>
+      <li>エラーが出たら「直して」と伝えるだけ</li>
     </ol>
 
     <div class="tip">
-      スラッシュコマンドは、<strong>Claude Code上級者の第一歩</strong>。
-      ここまで来ると、「Claudeが自分の延長になった」感覚が出てきます。
+      最初に必ず「テスト用フォルダで先にやって」と伝える習慣をつけましょう。
+      本番のファイルに触る前に動作確認できて、安心です。
+    </div>
+
+    <h3>テスト指示の例</h3>
+<pre><code>本番フォルダは触らないで。
+まずデスクトップに「テスト用」フォルダを作って、
+そこで動くか確認してから教えて。</code></pre>
+
+    <h2>4. エラーが出ても「直して」の一言</h2>
+
+    <p>
+      プログラムがうまく動かないとき、エラーメッセージが出ます。
+      そのメッセージをそのままClaudeに渡してください。
+    </p>
+
+<pre><code>動かしたらこんなエラーが出た。直して。
+
+----
+[エラーメッセージをここに貼る]</code></pre>
+
+    <p>
+      Claudeが原因を調べて、直したバージョンを出してくれます。
+      何度かやりとりすれば、だいたい動くようになります。
+    </p>
+
+    <h2>5. 毎日自動で動かす仕組みを作る（Windows）</h2>
+
+    <p>
+      「毎朝9時に自動実行したい」というときは、
+      Windowsの「タスクスケジューラ」という機能を使います。
+      設定の仕方もClaudeに聞けば教えてくれます。
+    </p>
+
+<pre><code>さっきのスクリプトを、毎朝9時に自動で動かしたい。
+Windowsのタスクスケジューラで設定する手順を教えて。</code></pre>
+
+    <p>
+      一度設定すれば、あとは毎日自動で動き続けます。
+      パソコンを開くだけで、作業が終わっている状態になります。
+    </p>
+
+    <h2>6. こんな作業が自動化できる</h2>
+
+    <ul>
+      <li><strong>ファイル整理</strong>：届いたファイルを種類別に振り分け</li>
+      <li><strong>バックアップ</strong>：大事なフォルダを毎日自動でコピー</li>
+      <li><strong>日報作成</strong>：毎日の日報ファイルを自動で用意</li>
+      <li><strong>データ変換</strong>：毎月届くExcelを決まった形に整える</li>
+      <li><strong>フォルダ掃除</strong>：古いファイルを自動で削除・整理</li>
+    </ul>
+
+    <div class="warn">
+      ファイルを削除するプログラムを作るときは、「削除する前にリストだけ表示して確認させて」と先に伝えてください。
+      間違って大事なファイルを消してしまうのを防げます。
     </div>
 
   </div>
@@ -274,22 +155,22 @@
   <aside class="summary">
     <div class="summary__title">この回のまとめ</div>
     <ul>
-      <li>スラッシュコマンド(<code>/コマンド名</code>)で、よく使う指示をワンボタン化</li>
-      <li>保存場所は <code>~/.claude/commands/</code> か プロジェクト内の <code>.claude/commands/</code></li>
-      <li>エージェント(専門家キャラ)も作れる。会話中に「◯◯エージェントで〜」と呼ぶだけ</li>
-      <li>両方組み合わせれば、自分専用の個人アシスタントに</li>
-      <li>最初は「週3回以上使う作業」だけコマンド化</li>
+      <li>「手でやってること」を言葉で説明するだけで自動化できる</li>
+      <li>Claudeがプログラムを書く → まずテスト → 確認してから本番</li>
+      <li>エラーが出たらそのまま渡して「直して」と言えばいい</li>
+      <li>Windowsタスクスケジューラで毎日自動実行できる</li>
+      <li>削除系の処理は「リスト表示→確認→削除」の順で安全に</li>
     </ul>
   </aside>
 
   <nav class="lesson-nav">
     <a href="05.html" class="prev">
       <span class="lesson-nav__dir">◀ 前の回</span>
-      <span class="lesson-nav__title">LESSON 05 — 自分用にカスタマイズ</span>
+      <span class="lesson-nav__title">LESSON 05 — Excelで1時間かかる集計が、3分で終わった</span>
     </a>
     <a href="07.html" class="next">
       <span class="lesson-nav__dir">次の回 ▶</span>
-      <span class="lesson-nav__title">LESSON 07 — 外のアプリとつなぐ</span>
+      <span class="lesson-nav__title">LESSON 07 — Obsidianとつなぐ（MCP連携）</span>
     </a>
   </nav>
 
@@ -298,8 +179,8 @@
 <footer class="site-footer">
   <div class="site-footer__links">
     <a href="../index.html">トップ</a>
-    <a href="../index.html#cowork">アプリ編</a>
-    <a href="../index.html#code">パソコン編</a>
+    <a href="../index.html#cowork">Cowork</a>
+    <a href="../index.html#code">Claude Code</a>
   </div>
   <p>&copy; Claudeまるわかり講座</p>
 </footer>

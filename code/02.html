@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LESSON 02 話しかけて動かしてみる — Claudeまるわかり講座</title>
+<title>LESSON 02 「このフォルダ何が入ってる？」で全部説明してくれた — Claudeまるわかり講座</title>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -12,232 +12,117 @@
   <div class="site-header__inner">
     <div class="site-header__logo"><a href="../index.html">Claude<span>まるわかり</span>講座</a></div>
     <nav class="site-header__nav">
-      <a href="../index.html#intro">導入</a>
-      <a href="../index.html#cowork">アプリ編</a>
-      <a href="../index.html#code">パソコン編</a>
+      <a href="../index.html#cowork">Cowork</a>
+      <a href="../index.html#code">Claude Code</a>
     </nav>
   </div>
 </header>
 
 <article class="lesson code">
 
-  <div class="lesson__breadcrumb">
-    <a href="../index.html">トップ</a> ＞ <a href="../index.html#code">パソコン編</a> ＞ LESSON 02
-  </div>
+  <div class="lesson__breadcrumb"><a href="../index.html">トップ</a> ＞ Claude Code ＞ LESSON 02</div>
 
   <span class="lesson__tag code">CODE 02</span>
-  <h1 class="lesson__title">話しかけて<br>動かしてみる</h1>
+  <h1 class="lesson__title">「このフォルダ何が入ってる？」で<br>全部説明してくれた</h1>
   <div class="lesson__meta">
-    <span>所要時間:約30分</span>
-    <span>レベル:基本</span>
-    <span>必要なもの:Claude Codeインストール済み</span>
+    <span>所要時間：約15分</span>
+    <span>レベル：超入門</span>
   </div>
 
   <div class="goal-box">
     <div class="goal-box__title">この回のゴール</div>
     <ul>
-      <li>Claude Codeでの会話の流れを身につける</li>
-      <li>「作業する場所」を指定できる</li>
-      <li>実行確認のダイアログに、落ち着いて対応できる</li>
+      <li>フォルダの中身をClaudeに読ませて把握させられる</li>
+      <li>「今どこにいるか」「どこに移動するか」の操作ができる</li>
     </ul>
   </div>
 
   <div class="lesson__body">
 
-    <h2>1. Claude Codeは「話しかけるだけ」</h2>
+    <h2>1. 「場所」の概念を覚える</h2>
 
     <p>
-      アプリ版と基本は同じです。日本語で話しかければOK。違いは、Claudeが<strong>あなたのパソコンで、実際に手を動かす</strong>こと。
+      Claude Code を起動すると、必ず「どこかのフォルダの中で動いて」います。
+      人間で言えば「今どの部屋にいるか」のようなもの。この場所のことを<strong>カレントディレクトリ</strong>と言いますが、難しく考えなくていいです。
     </p>
 
-    <h3>話しかける → 動く → 結果が返る</h3>
-
-    <p>例えば、こう話しかける。</p>
-
-<pre><code>デスクトップに「test.txt」というファイルを作って、
-中に「こんにちは」と書いて。</code></pre>
-
-    <p>Claudeが次のような流れで動きます。</p>
-
-    <ol>
-      <li>あなたの指示を理解する</li>
-      <li>「デスクトップにtest.txtを作成します。いいですか?」と確認</li>
-      <li>あなたが「yes」と答えると、実際に作成する</li>
-      <li>「作りました!」と報告</li>
-    </ol>
-
-    <p>
-      アプリ版と違って、<strong>実際にパソコン上で結果が残ります</strong>。
-      デスクトップを見ると、ほんとにtest.txtができているはず。
-    </p>
-
-    <h2>2. 作業する「場所」を決める</h2>
-
-    <p>
-      Claude Codeは「今いるフォルダ」で動きます。
-      ここを<strong>ちゃんと意識</strong>することが大事。
-    </p>
-
-    <h3>今どこにいるか確認</h3>
-
-    <p>ターミナルで:</p>
-
+    <p><strong>今いる場所を確認する</strong></p>
 <pre><code>pwd</code></pre>
+    <p>フォルダのパス（住所）が表示されます。たとえば <code>C:\Users\suzuki\Desktop</code> のような感じ。</p>
 
-    <p>現在のフォルダが表示されます。</p>
-
-    <h3>別のフォルダに移動する</h3>
-
-    <p>例:Desktopの中の「myproject」フォルダに移動</p>
-
-<pre><code>cd ~/Desktop/myproject
-claude</code></pre>
-
-    <p>
-      これでmyprojectフォルダで作業できます。
-      このフォルダの中のファイルを、Claude Codeが自由に読み書きできます。
-    </p>
-
-    <h3>Windowsの場合の例</h3>
-
-<pre><code>cd C:\Users\あなたの名前\Desktop\myproject
-claude</code></pre>
+    <p><strong>別の場所に移動する</strong></p>
+<pre><code>cd C:\Users\suzuki\Desktop\仕事フォルダ</code></pre>
+    <p><code>cd</code> は「ここに移動」という命令です。Macなら <code>cd ~/Desktop/仕事フォルダ</code> のように書きます。</p>
 
     <div class="tip">
-      迷子になったら「今いるフォルダを教えて」とClaudeに聞けばOK。
-      「このフォルダの中身を見せて」で、今何があるか確認できます。
+      迷子になったら「今どこにいるか教えて」とClaudeに話しかければ教えてくれます。コマンドを覚えなくてもOK。
     </div>
 
-    <h2>3. 最初にやってみる5つの作業</h2>
-
-    <p>どれも、パソコンのファイルを触る練習です。安全な場所(テスト用フォルダ)でやりましょう。</p>
-
-    <h3>作業1:ファイルを作る</h3>
-
-<pre><code>「test.txt」という名前のファイルを作って、
-中身に「テスト」と書いて。</code></pre>
-
-    <h3>作業2:ファイルを読む</h3>
-
-<pre><code>このフォルダにある.txtファイル、全部の中身を見せて。</code></pre>
-
-    <h3>作業3:ファイルを編集する</h3>
-
-<pre><code>test.txtの中身を、「こんにちは、Claude」に変えて。</code></pre>
-
-    <h3>作業4:フォルダの中を整理する</h3>
-
-<pre><code>このフォルダにあるファイルを、種類別(画像/文書/表)の
-サブフォルダに分けて整理して。</code></pre>
-
-    <h3>作業5:簡単な集計</h3>
-
-<pre><code>このフォルダにある.csvファイルを全部見て、
-合計の行数と、ざっくりの内容を要約して。</code></pre>
-
-    <h2>4. 実行確認のダイアログにどう対応する?</h2>
+    <h2>2. フォルダの中身を読ませる</h2>
 
     <p>
-      Claude Codeは、<strong>重要な動作をする前に必ず聞いてきます</strong>。
-      これは安全のため。
+      場所を決めたら、Claudeにフォルダの中身を読ませてみましょう。
     </p>
 
-    <h3>聞かれる例</h3>
+<pre><code>このフォルダを読んで、何があるか教えて</code></pre>
 
     <p>
-      ファイル書き換え、削除、コマンド実行など。
-      こんな画面が出ます。
+      Claudeが中身を一覧にして説明してくれます。このとき、画面上に「ツール使用中」という表示が出ます。これはClaudeが実際にフォルダをのぞいている証拠です。怪しいものではなく、普通の動作です。
     </p>
 
-<pre><code>Bash コマンド: rm old_file.txt
-Description: 古いファイルを削除
+    <p>
+      フォルダを読ませるだけなら、Claudeがファイルを変更することはありません。安全に試せます。
+    </p>
 
-  y - 実行する
-  n - やめる
-  a - いつもこのコマンドを許可</code></pre>
+    <h2>3. もっと具体的に聞いてみる</h2>
 
-    <h3>安全な使い方</h3>
+    <p>フォルダを読ませたあと、こんな質問ができます。</p>
 
-    <ul>
-      <li>最初は<strong>「y(一回だけ許可)」</strong>を基本にする</li>
-      <li>内容をよく読んでから答える</li>
-      <li>怪しい動作(大量削除、システムファイル操作)は<strong>「n」</strong>で止める</li>
-      <li>信頼できる安全なコマンドだけ「a(いつも許可)」にする</li>
-    </ul>
+    <p><strong>特定のファイルを読んでもらう</strong></p>
+<pre><code>このExcelファイルを読んで、中身を教えて</code></pre>
+
+    <p><strong>どのファイルが重要か聞く</strong></p>
+<pre><code>このフォルダの中で一番重要そうなファイルはどれ？理由も教えて</code></pre>
+
+    <p><strong>フォルダ全体を要約してもらう</strong></p>
+<pre><code>このフォルダ全体を見て、何のプロジェクトのフォルダか説明して</code></pre>
+
+    <p>
+      Claudeは中身を読んで「これは2023年の営業データが入っています。Excelが5つ、PDFが2つあります」のように説明してくれます。
+    </p>
+
+    <h2>4. こんな場面で使える</h2>
+
+    <p><strong>仕事の引き継ぎフォルダを把握する</strong></p>
+    <p>
+      前任者から引き継いだフォルダを全部読み込ませて「このフォルダで何をしていたか教えて」と聞くと、ファイルを一つずつ開かなくても全体像がつかめます。
+    </p>
+
+    <p><strong>散らかったデスクトップを整理する前に確認</strong></p>
+    <p>
+      整理する前に「このデスクトップにある全ファイルをジャンル別に分類して、一覧にして」と頼むと、何がどこにあるか把握できます。
+    </p>
+
+    <p><strong>プロジェクトフォルダの棚卸し</strong></p>
+    <p>
+      「このフォルダの中で、半年以上更新されていないファイルはどれ？」のように条件をつけて質問することもできます。
+    </p>
 
     <div class="warn">
-      <strong>Claude Codeに「危険な設定」で動かさせるのは厳禁</strong>。
-      特に <code>--dangerously-skip-permissions</code> のようなオプションは、プロでも慎重に扱うやつ。
-      初心者は絶対に使わない。
+      個人情報や機密情報が入ったファイルを読ませるときは注意してください。Claude Code は Anthropic のサーバーと通信して動きます。社外秘の契約書などは事前に社内のルールを確認してから使いましょう。
     </div>
 
-    <h2>5. よく使う会話のパターン</h2>
-
-    <h3>パターン1:現状確認</h3>
-
-    <ul>
-      <li>「今のフォルダの中身を一覧にして」</li>
-      <li>「このプロジェクトが何をするものか、ファイル見て説明して」</li>
-      <li>「◯◯.txtの中身を見せて」</li>
-    </ul>
-
-    <h3>パターン2:作業依頼</h3>
-
-    <ul>
-      <li>「◯◯のファイルを、こう変えて」</li>
-      <li>「このフォルダの中のPDFを、全部別のフォルダに移して」</li>
-      <li>「名前が古い形式のファイルを、新しい形式にリネームして」</li>
-    </ul>
-
-    <h3>パターン3:確認付きの実行</h3>
-
-    <ul>
-      <li>「このファイルの中身を直したい。まず、どう直すか案を見せてから、OK出したら実行して」</li>
-      <li>「◯◯してほしいけど、実行前に手順を教えて」</li>
-    </ul>
-
-    <p>
-      「<strong>実行前に手順を見せて</strong>」と一言添えると、先に計画を見てから安全に進められます。
-    </p>
-
-    <h2>6. Claudeが「やれない」ことを覚える</h2>
-
-    <p>
-      Claude Codeにも限界があります。
-    </p>
-
-    <h3>やれないこと</h3>
-
-    <ul>
-      <li>パスワードを必要とするサイトに勝手にログイン</li>
-      <li>あなたが禁止した操作(許可しない、と答えた動作)</li>
-      <li>ネットワーク外部への大きなファイル送信(セキュリティ制約)</li>
-      <li>物理的な操作(プリンター、カメラなど)</li>
-    </ul>
-
-    <h3>苦手なこと</h3>
-
-    <ul>
-      <li>画像をゼロから作る(描画自体はできない)</li>
-      <li>音声・動画の編集(一部ツール経由なら可)</li>
-      <li>大量データの超高速処理(慣れたプロのほうが速い)</li>
-    </ul>
-
-    <h2>7. やってみよう</h2>
-
-    <p>まずは安全な練習フォルダを1つ作って、試してみましょう。</p>
+    <h2>5. 試してみよう</h2>
 
     <ol>
-      <li>デスクトップに「claude_test」というフォルダを作る</li>
-      <li>その中に、test1.txt / test2.txt / test3.txt を自分で3つ作る(中身は適当)</li>
-      <li>ターミナルで <code>cd ~/Desktop/claude_test</code> して <code>claude</code> 起動</li>
-      <li>「このフォルダの中身を見せて」と頼む</li>
-      <li>「test1.txtの中身を、『こんにちは』に書き換えて」と頼む</li>
-      <li>「3つのファイルの中身を全部連結して、まとめ.txtにして」と頼む</li>
+      <li>ターミナルを開いて <code>claude</code> を起動する</li>
+      <li>「今いるフォルダを教えて」と聞いてみる</li>
+      <li>「このフォルダを読んで、何があるか教えて」と頼む</li>
+      <li>続けて「この中で一番重要そうなファイルはどれ？」と聞く</li>
     </ol>
 
     <p>
-      全部できたら、次回は<strong>もっと実用的なファイル操作</strong>に入ります。
+      この4ステップができれば、LESSON 02 はクリアです。
     </p>
 
   </div>
@@ -245,22 +130,21 @@ Description: 古いファイルを削除
   <aside class="summary">
     <div class="summary__title">この回のまとめ</div>
     <ul>
-      <li>Claude Codeは、話しかけて → 実行確認 → 動く、の流れ</li>
-      <li>「今どこで動いてるか」を意識する(<code>pwd</code>で確認、<code>cd</code>で移動)</li>
-      <li>重要な動作は必ず確認ダイアログが出る。内容を読んで判断</li>
-      <li><strong>「実行前に手順を見せて」で安全に進められる</strong></li>
-      <li>危険な設定(--dangerously-skip-permissions など)は絶対に使わない</li>
+      <li><code>pwd</code> で今いる場所を確認、<code>cd</code> で移動できる</li>
+      <li>「このフォルダを読んで、何があるか教えて」でフォルダの中身を把握できる</li>
+      <li>読んだあと、「重要なファイルはどれ？」など質問を続けられる</li>
+      <li>引き継ぎ・デスクトップ整理・プロジェクト棚卸しに使える</li>
     </ul>
   </aside>
 
   <nav class="lesson-nav">
     <a href="01.html" class="prev">
       <span class="lesson-nav__dir">◀ 前の回</span>
-      <span class="lesson-nav__title">LESSON 01 — Claude Codeって何?</span>
+      <span class="lesson-nav__title">LESSON 01 — 黒い画面に「hello」と打ったら返事した</span>
     </a>
     <a href="03.html" class="next">
       <span class="lesson-nav__dir">次の回 ▶</span>
-      <span class="lesson-nav__title">LESSON 03 — ファイルを読ませる・書かせる</span>
+      <span class="lesson-nav__title">LESSON 03 — 議事録のテンプレートを保存まで完了</span>
     </a>
   </nav>
 
@@ -269,8 +153,8 @@ Description: 古いファイルを削除
 <footer class="site-footer">
   <div class="site-footer__links">
     <a href="../index.html">トップ</a>
-    <a href="../index.html#cowork">アプリ編</a>
-    <a href="../index.html#code">パソコン編</a>
+    <a href="../index.html#cowork">Cowork</a>
+    <a href="../index.html#code">Claude Code</a>
   </div>
   <p>&copy; Claudeまるわかり講座</p>
 </footer>

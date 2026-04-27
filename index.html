@@ -3,9 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Claudeまるわかり講座 — 本当に何もわからない人のための全17回</title>
-<meta name="description" content="ClaudeのアプリとパソコンツールClaude Codeを、本当にゼロから使えるようになるまで解説する全17回の講座。">
+<title>Claudeまるわかり講座 — 3つの使い方を知れば仕事が変わる</title>
+<meta name="description" content="ChatからCowork、Claude Codeまで。Claudeの3つの使い方を順番に学べる全17回の講座。">
 <link rel="stylesheet" href="assets/style.css">
+<style>
+/* ───── 比較表 ───── */
+.compare-wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) 24px;
+}
+.compare-title {
+  font-size: clamp(18px, 3vw, 26px);
+  font-weight: 800;
+  margin-bottom: 28px;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--color-card-shadow);
+  font-size: 15px;
+}
+.compare-table th,
+.compare-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+  line-height: 1.6;
+}
+.compare-table th {
+  font-weight: 700;
+  font-size: 14px;
+  background: #f5f3f0;
+  color: var(--color-text-sub);
+  letter-spacing: 0.03em;
+  width: 130px;
+}
+.compare-table tr:last-child th,
+.compare-table tr:last-child td {
+  border-bottom: none;
+}
+.compare-table thead th {
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 16px;
+  font-weight: 800;
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+.compare-table thead th:first-child {
+  background: #f5f3f0;
+  color: var(--color-text-sub);
+  font-size: 13px;
+  font-weight: 600;
+}
+.col-chat { border-top: 3px solid #888; }
+.col-cowork { border-top: 3px solid var(--color-cowork); }
+.col-code { border-top: 3px solid var(--color-code); }
+.badge-chat {
+  display: inline-block;
+  background: #888;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 4px;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+.badge-cowork {
+  display: inline-block;
+  background: var(--color-cowork);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 4px;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+.badge-code {
+  display: inline-block;
+  background: var(--color-code);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 4px;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+.compare-table td.td-chat { color: var(--color-text); }
+.compare-table td.td-cowork { color: var(--color-text); }
+.compare-table td.td-code { color: var(--color-text); }
+.compare-table tbody tr:hover { background: #faf9f7; }
+
+/* スクロール対応（スマホ） */
+.compare-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+@media (max-width: 640px) {
+  .compare-table th,
+  .compare-table td {
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+  .compare-table th { width: 90px; }
+  .compare-wrap { padding: 32px 16px; }
+}
+</style>
 </head>
 <body>
 
@@ -13,20 +126,22 @@
   <div class="site-header__inner">
     <div class="site-header__logo">Claude<span>まるわかり</span>講座</div>
     <nav class="site-header__nav">
-      <a href="#intro">導入</a>
-      <a href="#cowork">アプリ編</a>
-      <a href="#code">パソコン編</a>
+      <a href="#compare">3つの違い</a>
+      <a href="#cowork">Cowork</a>
+      <a href="#code">Claude Code</a>
     </nav>
   </div>
 </header>
 
+<!-- ────────────── ヒーロー ────────────── -->
 <section class="hero">
   <div class="hero__inner">
-    <span class="hero__kicker">ゼロから始める全17回</span>
-    <h1 class="hero__title">Claude、<em>触ったこと無くても</em><br>仕事で使えるようになる。</h1>
+    <span class="hero__kicker">全17回・無料で始められる</span>
+    <h1 class="hero__title">Claude、<em>3つの使い方</em>を<br>知れば仕事が変わる。</h1>
     <p class="hero__sub">
-      「AIって聞いたことはあるけど、何から始めれば…」そんな人のための講座。<br>
-      登録の仕方から、メール・議事録・資料作成まで。1回ずつ順に進めればOK。
+      「チャットで聞く」だけじゃない。<br>
+      一緒に作る「Cowork」、PCに任せる「Claude Code」。<br>
+      順番に進めれば、今日から仕事で使えるようになる。
     </p>
     <div class="hero__meta">
       <span>全17回</span>
@@ -36,122 +151,169 @@
   </div>
 </section>
 
-<!-- ────────────── 導入 ────────────── -->
-<section class="section" id="intro">
-  <div class="section__head">
-    <span class="section__badge" style="background:#6b5ecc">INTRO</span>
-    <h2 class="section__title">まずはここから — 全体像をつかむ</h2>
-    <p class="section__sub">最初に読んでほしい1本</p>
+<!-- ────────────── 比較表 ────────────── -->
+<div class="compare-wrap" id="compare">
+  <h2 class="compare-title">3つの使い方、何が違う？</h2>
+  <div class="compare-scroll">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="col-chat">
+            <span class="badge-chat">CHAT</span><br>
+            チャット
+          </th>
+          <th class="col-cowork">
+            <span class="badge-cowork">CO-WORK</span><br>
+            Cowork
+          </th>
+          <th class="col-code">
+            <span class="badge-code">CODE</span><br>
+            Claude Code
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>一言で言うと</th>
+          <td class="td-chat">質問して答えをもらう</td>
+          <td class="td-cowork">一緒に考えて一緒に作る</td>
+          <td class="td-code">PCに入れて自動でやらせる</td>
+        </tr>
+        <tr>
+          <th>使う場所</th>
+          <td class="td-chat">スマホ・PCどこでも</td>
+          <td class="td-cowork">PC（ブラウザ）</td>
+          <td class="td-code">PC（ターミナル）</td>
+        </tr>
+        <tr>
+          <th>難易度</th>
+          <td class="td-chat">超入門</td>
+          <td class="td-cowork">基本</td>
+          <td class="td-code">応用</td>
+        </tr>
+        <tr>
+          <th>料金</th>
+          <td class="td-chat">無料あり</td>
+          <td class="td-cowork">Pro $20/月が快適</td>
+          <td class="td-code">Pro $20/月が必須</td>
+        </tr>
+        <tr>
+          <th>こんな人向け</th>
+          <td class="td-chat">とりあえず試したい</td>
+          <td class="td-cowork">仕事で使いたい</td>
+          <td class="td-code">作業を丸投げしたい</td>
+        </tr>
+        <tr>
+          <th>できること</th>
+          <td class="td-chat">調べる・書く・翻訳</td>
+          <td class="td-cowork">企画・分析・資料作り</td>
+          <td class="td-code">ファイル操作・自動化</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>
 
-  <div class="cards">
-    <a href="intro/00.html" class="card" style="border-top:3px solid #6b5ecc">
-      <span class="card__num" style="color:#6b5ecc">LESSON 00</span>
-      <h3 class="card__title">Claudeには3つの使い方がある — チャット/コワーク/コードの違い</h3>
-      <div class="card__meta"><span style="color:#6b5ecc">約30分</span><span>超入門</span></div>
-    </a>
-  </div>
-</section>
-
-<!-- ────────────── Co-work編 ────────────── -->
+<!-- ────────────── Cowork編 ────────────── -->
 <section class="section" id="cowork">
   <div class="section__head">
     <span class="section__badge">CO-WORK</span>
-    <h2 class="section__title">アプリ編 — Claudeアプリの使い方</h2>
-    <p class="section__sub">スマホ・パソコンどちらでもOK / 全8回</p>
+    <h2 class="section__title">Cowork — 一緒に考えて一緒に作る</h2>
+    <p class="section__sub">全8回</p>
   </div>
 
   <div class="cards">
-    <a href="cowork/01.html" class="card">
+    <a href="cowork/01.html" class="card" style="border-top:3px solid var(--color-cowork)">
       <span class="card__num">LESSON 01</span>
-      <h3 class="card__title">そもそもClaudeって何？登録して話しかけてみよう</h3>
-      <div class="card__meta"><span>約30分</span><span>超入門</span></div>
-    </a>
-    <a href="cowork/02.html" class="card">
-      <span class="card__num">LESSON 02</span>
-      <h3 class="card__title">Claudeに伝わる言い方のコツ</h3>
+      <h3 class="card__title">Claudeに記憶を持たせる（プロジェクト機能）</h3>
       <div class="card__meta"><span>約30分</span><span>基本</span></div>
     </a>
-    <a href="cowork/03.html" class="card">
-      <span class="card__num">LESSON 03</span>
-      <h3 class="card__title">仕事ごとに分ける「プロジェクト」機能</h3>
-      <div class="card__meta"><span>約30分</span><span>整理</span></div>
+    <a href="cowork/02.html" class="card" style="border-top:3px solid var(--color-cowork)">
+      <span class="card__num">LESSON 02</span>
+      <h3 class="card__title">ファイルをまとめて分析させる</h3>
+      <div class="card__meta"><span>約30分</span><span>基本</span></div>
     </a>
-    <a href="cowork/04.html" class="card">
-      <span class="card__num">LESSON 04</span>
-      <h3 class="card__title">文書・資料を作ってもらう</h3>
+    <a href="cowork/03.html" class="card" style="border-top:3px solid var(--color-cowork)">
+      <span class="card__num">LESSON 03</span>
+      <h3 class="card__title">メール・提案文を一発で書かせる</h3>
       <div class="card__meta"><span>約30分</span><span>実作業</span></div>
     </a>
-    <a href="cowork/05.html" class="card">
+    <a href="cowork/04.html" class="card" style="border-top:3px solid var(--color-cowork)">
+      <span class="card__num">LESSON 04</span>
+      <h3 class="card__title">壁打ち・アイデア出し</h3>
+      <div class="card__meta"><span>約30分</span><span>実作業</span></div>
+    </a>
+    <a href="cowork/05.html" class="card" style="border-top:3px solid var(--color-cowork)">
       <span class="card__num">LESSON 05</span>
-      <h3 class="card__title">GmailやSlackとつなぐ</h3>
-      <div class="card__meta"><span>約30分</span><span>応用</span></div>
+      <h3 class="card__title">バラバラな情報を表に整理</h3>
+      <div class="card__meta"><span>約30分</span><span>便利技</span></div>
     </a>
-    <a href="cowork/06.html" class="card">
+    <a href="cowork/06.html" class="card" style="border-top:3px solid var(--color-cowork)">
       <span class="card__num">LESSON 06</span>
-      <h3 class="card__title">ファイル・画像を放り込んで聞く</h3>
+      <h3 class="card__title">知らない分野をキャッチアップ</h3>
       <div class="card__meta"><span>約30分</span><span>便利技</span></div>
     </a>
-    <a href="cowork/07.html" class="card">
+    <a href="cowork/07.html" class="card" style="border-top:3px solid var(--color-cowork)">
       <span class="card__num">LESSON 07</span>
-      <h3 class="card__title">計算や表を作ってもらう</h3>
+      <h3 class="card__title">書いたものを添削・ブラッシュアップ</h3>
       <div class="card__meta"><span>約30分</span><span>便利技</span></div>
     </a>
-    <a href="cowork/08.html" class="card">
+    <a href="cowork/08.html" class="card" style="border-top:3px solid var(--color-cowork)">
       <span class="card__num">LESSON 08</span>
-      <h3 class="card__title">実際の仕事に使う(メール・議事録・資料)</h3>
+      <h3 class="card__title">テンプレートを作って量産</h3>
       <div class="card__meta"><span>約30分</span><span>仕上げ</span></div>
     </a>
   </div>
 </section>
 
-<!-- ────────────── Code編 ────────────── -->
+<!-- ────────────── Claude Code編 ────────────── -->
 <section class="section" id="code">
   <div class="section__head">
     <span class="section__badge code">CODE</span>
-    <h2 class="section__title">パソコン編 — Claude Codeの使い方</h2>
-    <p class="section__sub">パソコンで動くClaude / 全8回</p>
+    <h2 class="section__title">Claude Code — 作業を丸投げする</h2>
+    <p class="section__sub">全8回</p>
   </div>
 
   <div class="cards">
     <a href="code/01.html" class="card code">
       <span class="card__num">LESSON 01</span>
-      <h3 class="card__title">Claude Codeって何？入れてみる</h3>
+      <h3 class="card__title">インストールと最初の一言</h3>
       <div class="card__meta"><span>約30分</span><span>導入</span></div>
     </a>
     <a href="code/02.html" class="card code">
       <span class="card__num">LESSON 02</span>
-      <h3 class="card__title">話しかけて動かしてみる</h3>
+      <h3 class="card__title">フォルダの中身を全部把握させる</h3>
       <div class="card__meta"><span>約30分</span><span>基本</span></div>
     </a>
     <a href="code/03.html" class="card code">
       <span class="card__num">LESSON 03</span>
-      <h3 class="card__title">ファイルを読ませる・書かせる</h3>
+      <h3 class="card__title">ファイルを一から作ってもらう</h3>
       <div class="card__meta"><span>約30分</span><span>基本</span></div>
     </a>
     <a href="code/04.html" class="card code">
       <span class="card__num">LESSON 04</span>
-      <h3 class="card__title">エラーが出たら直してもらう</h3>
+      <h3 class="card__title">ファイルをまとめて書き換える</h3>
       <div class="card__meta"><span>約30分</span><span>実作業</span></div>
     </a>
     <a href="code/05.html" class="card code">
       <span class="card__num">LESSON 05</span>
-      <h3 class="card__title">自分用にカスタマイズ</h3>
-      <div class="card__meta"><span>約30分</span><span>応用</span></div>
+      <h3 class="card__title">CSVやデータを集計させる</h3>
+      <div class="card__meta"><span>約30分</span><span>実作業</span></div>
     </a>
     <a href="code/06.html" class="card code">
       <span class="card__num">LESSON 06</span>
-      <h3 class="card__title">ワンボタンで呼び出す機能を作る</h3>
+      <h3 class="card__title">毎日やる作業を自動化する</h3>
       <div class="card__meta"><span>約30分</span><span>応用</span></div>
     </a>
     <a href="code/07.html" class="card code">
       <span class="card__num">LESSON 07</span>
-      <h3 class="card__title">外のアプリとつなぐ</h3>
+      <h3 class="card__title">Obsidianとつなぐ（MCP連携）</h3>
       <div class="card__meta"><span>約30分</span><span>連携</span></div>
     </a>
     <a href="code/08.html" class="card code">
       <span class="card__num">LESSON 08</span>
-      <h3 class="card__title">放置で自動で動かす</h3>
+      <h3 class="card__title">ゴールだけ伝えて丸投げする</h3>
       <div class="card__meta"><span>約30分</span><span>仕上げ</span></div>
     </a>
   </div>
@@ -160,8 +322,8 @@
 <footer class="site-footer">
   <div class="site-footer__links">
     <a href="index.html">トップ</a>
-    <a href="#cowork">アプリ編</a>
-    <a href="#code">パソコン編</a>
+    <a href="#cowork">Cowork</a>
+    <a href="#code">Claude Code</a>
   </div>
   <p>&copy; Claudeまるわかり講座</p>
 </footer>

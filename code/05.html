@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LESSON 05 自分用にカスタマイズ — Claudeまるわかり講座</title>
+<title>LESSON 05 Excelで1時間かかる集計が、3分で終わった — Claudeまるわかり講座</title>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -12,9 +12,8 @@
   <div class="site-header__inner">
     <div class="site-header__logo"><a href="../index.html">Claude<span>まるわかり</span>講座</a></div>
     <nav class="site-header__nav">
-      <a href="../index.html#intro">導入</a>
-      <a href="../index.html#cowork">アプリ編</a>
-      <a href="../index.html#code">パソコン編</a>
+      <a href="../index.html#cowork">Cowork</a>
+      <a href="../index.html#code">Claude Code</a>
     </nav>
   </div>
 </header>
@@ -22,277 +21,171 @@
 <article class="lesson code">
 
   <div class="lesson__breadcrumb">
-    <a href="../index.html">トップ</a> ＞ <a href="../index.html#code">パソコン編</a> ＞ LESSON 05
+    <a href="../index.html">トップ</a> ＞ Claude Code ＞ LESSON 05
   </div>
 
   <span class="lesson__tag code">CODE 05</span>
-  <h1 class="lesson__title">自分用に<br>カスタマイズ</h1>
+  <h1 class="lesson__title">Excelで1時間かかる集計が、<br>3分で終わった</h1>
   <div class="lesson__meta">
-    <span>所要時間:約30分</span>
-    <span>レベル:応用</span>
-    <span>必要なもの:Claude Codeインストール済み</span>
+    <span>所要時間：約15分</span>
+    <span>レベル：基本</span>
   </div>
 
   <div class="goal-box">
     <div class="goal-box__title">この回のゴール</div>
     <ul>
-      <li>Claudeに「自分の流儀」を覚えさせる方法が分かる</li>
-      <li>「CLAUDE.md」という設定ファイルを書ける</li>
-      <li>プロジェクトごとの好みを毎回指示し直さなくて済む</li>
+      <li>CSVやデータファイルをClaudeに渡して、集計・分析ができる</li>
+      <li>「売上の多い順に並べて」「月別に集計して」を言葉で指示できる</li>
+      <li>結果をCSVで保存したり、グラフとして見えるようにできる</li>
     </ul>
   </div>
 
   <div class="lesson__body">
 
-    <h2>1. 「CLAUDE.md」って何?</h2>
+    <h2>1. Claudeにデータを渡す、たったこれだけ</h2>
 
     <p>
-      アプリ編のLESSON 03で学んだ<strong>「プロジェクトのカスタム指示」</strong>、覚えてますか?
-      「このプロジェクトでは毎回こういう前提で動いて」と伝えておく、アレです。
+      やり方はシンプルです。CSVファイルをフォルダに置いて、そのフォルダでClaude Codeを開く。
+      あとは「このファイルを分析して」と言うだけ。
     </p>
 
     <p>
-      Claude Codeにも、同じ仕組みがあります。それが<strong>「CLAUDE.md(クロード・ドット・エムディー)」</strong>というファイル。
+      Claudeはファイルを開いて読んで、中身を理解します。
+      「こういう列があって、こういうデータが入ってますね」と確認してくれた後、
+      指示を待ちます。
     </p>
 
-    <blockquote>
-      普通のフォルダ = Claudeは毎回「はじめまして」<br>
-      CLAUDE.mdあるフォルダ = Claudeが毎回「いつもの前提で」動く
-    </blockquote>
-
-    <h3>何が書ける?</h3>
-
-    <ul>
-      <li>プロジェクトの目的・背景</li>
-      <li>使ってるツール・ライブラリ</li>
-      <li>コードの書き方のルール</li>
-      <li>やってほしくないこと</li>
-      <li>自分の好み(日本語で返事して、など)</li>
-    </ul>
-
-    <h2>2. 作り方(一番シンプルな例)</h2>
-
-    <h3>手順</h3>
-
-    <ol>
-      <li>プロジェクトのフォルダに移動</li>
-      <li>そこに<code>CLAUDE.md</code>というファイルを作る</li>
-      <li>中に、Claudeに伝えたいことを書く</li>
-      <li>次回からClaudeが自動で読んでくれる</li>
-    </ol>
-
-    <h3>Claudeに作らせるのが早い</h3>
-
-<pre><code>このフォルダにCLAUDE.mdを作って。
-
-内容:
-- このプロジェクトは「家計簿アプリ」の開発
-- Python + SQLiteで作る
-- 日本語で会話して
-- コメントも日本語で書いて
-- テストを先に書くスタイルで進めたい</code></pre>
+<pre><code>sales_2024.csv を開いて、どんなデータが入ってるか教えて</code></pre>
 
     <p>
-      Claudeがその場で CLAUDE.md を作ってくれます。
+      まずこれで「どんなデータか」を把握してもらいます。
+      その後、やりたいことを伝えればOK。
     </p>
 
-    <h2>3. CLAUDE.mdの書き方テンプレート</h2>
+    <h2>2. よく使う指示のパターン</h2>
 
-    <p>迷ったら、この型をコピペしてカスタマイズ。</p>
+    <h3>並び替え</h3>
+<pre><code>売上の多い順に並べて、上位10件だけ見せて</code></pre>
 
-<pre><code># プロジェクト:◯◯
+    <h3>集計</h3>
+<pre><code>月別に売上を合計して、一覧にして</code></pre>
 
-## プロジェクトの目的
-- 何を作るか・誰のために・何のために
+    <h3>フィルター</h3>
+<pre><code>「区分」列が「法人」のものだけ抜き出して</code></pre>
 
-## 使っている技術
-- 言語:Python 3.11
-- フレームワーク:◯◯
-- データ保存:◯◯
-
-## コードの方針
-- シンプルに書く
-- 関数は短く、1つのことだけをする
-- コメントは日本語で
-
-## 進め方
-- テストを先に書く(TDD)
-- 変更はGitでコミットしてから
-
-## 避けてほしいこと
-- 推測で動かない。不明なことは質問してから進める
-- 大量のファイル変更を一度にしない
-
-## 会話のトーン
-- 日本語で
-- 丁寧すぎず、フランクに</code></pre>
-
-    <h2>4. 階層で使い分けできる</h2>
+    <h3>比較</h3>
+<pre><code>今年と去年の同じ月を比べて、増減を出して</code></pre>
 
     <p>
-      CLAUDE.mdは、<strong>フォルダごと</strong>に置けます。
-      Claudeは、今いるフォルダから順番に、親フォルダまで全部読みに行きます。
+      Excelで手作業でやると、1時間かかることが多いです。
+      Claudeなら「言葉で言うだけ」で、3分もかかりません。
     </p>
 
-    <h3>例:階層構造</h3>
-
-<pre><code>~/
-├── CLAUDE.md          ← 全体共通の好み
-└── Desktop/
-    ├── project_A/
-    │   ├── CLAUDE.md  ← プロジェクトA固有の指示
-    │   └── src/
-    └── project_B/
-        └── CLAUDE.md  ← プロジェクトB固有の指示</code></pre>
-
-    <h3>ホーム直下のCLAUDE.mdに書くべきこと</h3>
-
-    <ul>
-      <li>自分の名前・役割(例:「フリーランスのエンジニア」)</li>
-      <li>全プロジェクト共通のルール(日本語で会話、丁寧に等)</li>
-      <li>自分の得意・苦手(専門用語レベル、経験年数)</li>
-    </ul>
-
-    <h3>プロジェクト直下のCLAUDE.mdに書くべきこと</h3>
-
-    <ul>
-      <li>そのプロジェクトの目的</li>
-      <li>使ってる技術・ライブラリ</li>
-      <li>ファイル構成の説明</li>
-      <li>このプロジェクト特有の注意点</li>
-    </ul>
-
-    <h2>5. 実践:実際に作ってみる</h2>
-
-    <h3>例1:ライター向け</h3>
-
-<pre><code># 私について
-- 職業:Webライター
-- 専門分野:ビジネス、副業、キャリア
-- 文字数相場:3000〜5000字/記事
-
-# お願い
-- 原稿作成は、タイトル → 見出し → 本文 の順で進める
-- 一度に書きすぎない。見出しごとに確認を入れる
-- 誤字チェックは最後にまとめて
-
-# 文体
-- です・ます調
-- 専門用語は初出時に補足
-- 断定は控えめ、根拠を添える
-
-# 禁止事項
-- 出典を捏造しない
-- 数字は必ず根拠を確認</code></pre>
-
-    <h3>例2:営業職向け</h3>
-
-<pre><code># 私について
-- 職業:法人営業(BtoB)
-- 扱い:中小企業向けSaaS
-- 担当:関東エリア
-
-# お願い
-- メール文面は、丁寧・簡潔・信頼感の3点重視
-- 営業トークは、相手の課題に寄り添う形で
-- 数字や実績は、根拠と出典セットで
-
-# 禁止事項
-- 誇大な表現
-- 競合の悪口
-- 個人情報の取り扱い注意</code></pre>
-
-    <h3>例3:個人事業主向け</h3>
-
-<pre><code># 私について
-- フリーランスのデザイナー
-- 得意:紙・Web両方
-- ツール:Adobe系、Figma
-
-# 仕事の進め方
-- 見積もりは詳細に(工数+内容)
-- 先方とのやりとりはメール中心
-- 納品前に必ず自己レビュー
-
-# お願い
-- 提案書は、相手のロゴ・社風に合わせて丁寧に
-- 見積書は、他社比較されても困らない明朗会計で</code></pre>
-
-    <h2>6. 活用のコツ</h2>
-
-    <h3>コツ1:使いながら育てる</h3>
+    <h2>3. 結果を新しいファイルに保存する</h2>
 
     <p>
-      最初から完璧にしようとしない。
-      「あ、毎回これ指示してるな」と気づいたら、CLAUDE.mdに追記。
-      使うほど、だんだん最強のCLAUDE.mdになります。
+      集計結果を「また見たい」「誰かに渡したい」とき、保存を頼めます。
     </p>
 
-    <h3>コツ2:短く、具体的に</h3>
+<pre><code>この集計結果を「月別売上まとめ.csv」として保存して</code></pre>
 
     <p>
-      長すぎると読んでもらえないし、抽象的すぎると伝わりません。
-      <strong>箇条書き・1項目1行</strong>が基本。
+      Claudeが同じフォルダに新しいCSVを作ってくれます。
+      元のファイルはそのまま。上書きしません。
     </p>
-
-    <h3>コツ3:「禁止事項」をちゃんと書く</h3>
-
-    <p>
-      「やってほしいこと」より<strong>「やってほしくないこと」</strong>の方が、地雷を避けやすい。
-      「機密情報を外部に送信しない」「勝手にライブラリを入れない」など、明確に書いておきましょう。
-    </p>
-
-    <h2>7. CLAUDE.mdの仲間たち</h2>
-
-    <p>より細かくカスタマイズしたい人向けに、Claude Codeには他にも設定の仕組みがあります。</p>
-
-    <ul>
-      <li><strong>.claude/settings.json</strong>:もっと細かい動作設定(許可コマンドなど)</li>
-      <li><strong>.claude/commands/</strong>:自分だけのショートカット作成(次回のLESSON 06で扱う)</li>
-      <li><strong>.claude/agents/</strong>:専門家キャラを作れる(同じく次回)</li>
-    </ul>
-
-    <p>
-      今回のCLAUDE.mdだけでも、かなり快適になります。
-      余裕が出てきたら、次の仕組みにも手を伸ばしてみてください。
-    </p>
-
-    <h2>8. やってみよう</h2>
-
-    <ol>
-      <li>自分のメイン作業フォルダに移動</li>
-      <li>Claudeに「CLAUDE.md作って」と頼む(上のテンプレ参考に)</li>
-      <li>作ったあと、何か作業を1つ頼んでみる</li>
-      <li>「いつもと違う、馴染んだ感じ」を味わう</li>
-      <li>気になる箇所があれば、CLAUDE.mdを編集して調整</li>
-    </ol>
 
     <div class="tip">
-      CLAUDE.mdを育てるのは、<strong>「Claudeを自分専用の助手にする作業」</strong>。
-      使い込むほど、仕事の相棒度が上がります。
+      保存先を指定したいときは「デスクトップのreportsフォルダに保存して」のように場所も伝えれば大丈夫です。
     </div>
+
+    <h2>4. グラフも作れる</h2>
+
+    <p>
+      数字だけじゃなく、グラフで見たいときは「グラフも作って」の一言でOK。
+      ClaudeはHTMLファイルを作って、ブラウザで見られるグラフを出力してくれます。
+    </p>
+
+<pre><code>月別の売上をグラフにして、HTMLファイルで保存して</code></pre>
+
+    <p>
+      できたHTMLファイルをダブルクリックするとブラウザが開いて、棒グラフや折れ線グラフが表示されます。
+      PowerPointに貼り付けることもできます。
+    </p>
+
+    <h3>実際に頼んだ例</h3>
+<pre><code>sales_2024.csv の月別売上を折れ線グラフにして。
+見出しは「2024年 月別売上推移」にして。
+HTMLファイルで保存して。</code></pre>
+
+    <h2>5. ExcelとClaudeの使い分け</h2>
+
+    <p>
+      どちらかが「絶対正解」というわけじゃないです。得意なことが違います。
+    </p>
+
+    <table style="width:100%; border-collapse:collapse; margin: 16px 0; font-size:14px;">
+      <thead>
+        <tr style="background:var(--color-code-light);">
+          <th style="padding:10px 14px; text-align:left; border-bottom:2px solid var(--color-code);">場面</th>
+          <th style="padding:10px 14px; text-align:left; border-bottom:2px solid var(--color-code);">向いてる方法</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--color-border);">
+          <td style="padding:10px 14px;">毎月同じフォーマットで集計する</td>
+          <td style="padding:10px 14px;">Excel（テンプレートが速い）</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--color-border);">
+          <td style="padding:10px 14px;">イレギュラーな集計・一回だけの分析</td>
+          <td style="padding:10px 14px;"><strong>Claude</strong></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--color-border);">
+          <td style="padding:10px 14px;">「あの条件で絞り込んで」と毎回変わる</td>
+          <td style="padding:10px 14px;"><strong>Claude</strong></td>
+        </tr>
+        <tr>
+          <td style="padding:10px 14px;">グラフを素早く作って共有したい</td>
+          <td style="padding:10px 14px;"><strong>Claude</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="warn">
+      Claudeが出した計算結果は、必ず数件だけ手で確認してください。
+      大量データの処理は速いですが、スポットチェックは人間がやる習慣をつけましょう。
+    </div>
+
+    <h2>6. 使える場面の例</h2>
+
+    <ul>
+      <li><strong>売上集計</strong>：商品別・担当者別・月別に集計して比較</li>
+      <li><strong>アンケート分析</strong>：回答を集計して傾向を出す</li>
+      <li><strong>在庫チェック</strong>：数量が一定以下の商品だけ抜き出す</li>
+      <li><strong>経費管理</strong>：カテゴリ別に合計して予算と比較</li>
+      <li><strong>顧客リスト整理</strong>：重複を探す、条件で絞り込む</li>
+    </ul>
 
   </div>
 
   <aside class="summary">
     <div class="summary__title">この回のまとめ</div>
     <ul>
-      <li>CLAUDE.md は、プロジェクトごとの「Claude向け説明書」</li>
-      <li>目的・技術・ルール・好みを書いておくと、毎回自動で読んでくれる</li>
-      <li>階層で置ける:ホーム共通 + プロジェクト固有</li>
-      <li>短く・具体的に・禁止事項もちゃんと書く</li>
-      <li>使いながら育てていく</li>
+      <li>CSVをフォルダに置いて「分析して」と言うだけで始まる</li>
+      <li>並び替え・集計・フィルターを言葉で指示できる</li>
+      <li>結果を新しいCSVで保存できる</li>
+      <li>「グラフも作って」でHTMLファイルに可視化できる</li>
+      <li>計算結果は必ずスポットチェックする習慣を</li>
     </ul>
   </aside>
 
   <nav class="lesson-nav">
     <a href="04.html" class="prev">
       <span class="lesson-nav__dir">◀ 前の回</span>
-      <span class="lesson-nav__title">LESSON 04 — エラーが出たら直してもらう</span>
+      <span class="lesson-nav__title">LESSON 04 — ファイルをまとめて書き換える</span>
     </a>
     <a href="06.html" class="next">
       <span class="lesson-nav__dir">次の回 ▶</span>
-      <span class="lesson-nav__title">LESSON 06 — ワンボタンで呼び出す機能を作る</span>
+      <span class="lesson-nav__title">LESSON 06 — 「毎日やってるこの作業、自動化して」が通じた</span>
     </a>
   </nav>
 
@@ -301,8 +194,8 @@
 <footer class="site-footer">
   <div class="site-footer__links">
     <a href="../index.html">トップ</a>
-    <a href="../index.html#cowork">アプリ編</a>
-    <a href="../index.html#code">パソコン編</a>
+    <a href="../index.html#cowork">Cowork</a>
+    <a href="../index.html#code">Claude Code</a>
   </div>
   <p>&copy; Claudeまるわかり講座</p>
 </footer>

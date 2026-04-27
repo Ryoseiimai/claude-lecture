@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LESSON 03 ファイルを読ませる・書かせる — Claudeまるわかり講座</title>
+<title>LESSON 03 「議事録のテンプレート作って」で保存まで終わった — Claudeまるわかり講座</title>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -12,254 +12,145 @@
   <div class="site-header__inner">
     <div class="site-header__logo"><a href="../index.html">Claude<span>まるわかり</span>講座</a></div>
     <nav class="site-header__nav">
-      <a href="../index.html#intro">導入</a>
-      <a href="../index.html#cowork">アプリ編</a>
-      <a href="../index.html#code">パソコン編</a>
+      <a href="../index.html#cowork">Cowork</a>
+      <a href="../index.html#code">Claude Code</a>
     </nav>
   </div>
 </header>
 
 <article class="lesson code">
 
-  <div class="lesson__breadcrumb">
-    <a href="../index.html">トップ</a> ＞ <a href="../index.html#code">パソコン編</a> ＞ LESSON 03
-  </div>
+  <div class="lesson__breadcrumb"><a href="../index.html">トップ</a> ＞ Claude Code ＞ LESSON 03</div>
 
   <span class="lesson__tag code">CODE 03</span>
-  <h1 class="lesson__title">ファイルを<br>読ませる・書かせる</h1>
+  <h1 class="lesson__title">「議事録のテンプレート作って」で<br>保存まで終わった</h1>
   <div class="lesson__meta">
-    <span>所要時間:約30分</span>
-    <span>レベル:基本</span>
-    <span>必要なもの:Claude Codeインストール済み</span>
+    <span>所要時間：約15分</span>
+    <span>レベル：超入門</span>
   </div>
 
   <div class="goal-box">
     <div class="goal-box__title">この回のゴール</div>
     <ul>
-      <li>ファイルの「読み取り」「書き込み」「編集」をClaudeに任せられる</li>
-      <li>複数ファイルの一括処理ができる</li>
-      <li>事故を防ぐ「Git」というバックアップ技を知る</li>
+      <li>Claudeにファイルを作らせて保存させられる</li>
+      <li>実行前に「何をやるか確認する」習慣が身につく</li>
     </ul>
   </div>
 
   <div class="lesson__body">
 
-    <h2>1. ファイル操作はClaude Codeの十八番</h2>
+    <h2>1. 「ファイルを作って」の基本形</h2>
 
     <p>
-      Claude Codeが本領発揮するのは、<strong>ファイルを扱う時</strong>です。
-      アプリ版はファイルを1個1個渡す必要がありますが、Claude Codeは<strong>フォルダ全体を自由に読み書きできる</strong>。
+      Claude Code でファイルを作らせるのはとてもシンプルです。「〇〇というファイルを作って」と言うだけ。
     </p>
 
-    <p>ここをマスターすると、事務作業のほとんどが自動化できます。</p>
-
-    <h2>2. 読み取り:まとめて読む</h2>
-
-    <h3>1つのファイルを読む</h3>
-
-<pre><code>report.txtの中身を見せて。</code></pre>
-
-    <h3>複数ファイルを読む</h3>
-
-<pre><code>このフォルダの.txtファイルを全部読んで、
-どれが一番文字数多いか教えて。</code></pre>
-
-    <h3>PDFや画像も読める</h3>
-
-<pre><code>このフォルダのPDF10個を読んで、
-それぞれ3行要約を作って。</code></pre>
-
-    <h3>大量のファイル読み込み</h3>
-
-<pre><code>100個以上の見積書PDFがこのフォルダにある。
-全部読んで、金額の合計と、一番大きい案件を教えて。</code></pre>
+<pre><code>議事録テンプレートのテキストファイルを作って、デスクトップに保存して</code></pre>
 
     <p>
-      Claudeが内部で順番に処理してくれます。大量でも大丈夫。
+      Claudeが内容を考えて、ファイルを作り、保存まで完了します。Coworkで「議事録テンプレートを作って」と頼んだとき、自分でコピーして保存する手間がゼロになります。
     </p>
 
-    <div class="img-placeholder">スクリーンショット:大量のPDFを読み込んで集計している様子</div>
+    <h2>2. 作れるファイルの種類</h2>
 
-    <h2>3. 書き込み:新しくファイルを作る</h2>
+    <p><strong>テキストファイル（.txt）</strong></p>
+<pre><code>「日報テンプレート.txt」を作って。
+項目は「今日やったこと」「明日やること」「困ったこと」の3つ。</code></pre>
 
-<pre><code>新規に「nisshi.md」というファイルを作って、
-今日の日記テンプレートを入れて。
+    <p><strong>CSVファイル（.csv）</strong></p>
+<pre><code>お客様リスト用のCSVファイルを作って。
+列は「会社名」「担当者名」「電話番号」「最終連絡日」の4つ。
+サンプルデータを3行入れておいて。</code></pre>
 
-内容:
-- 日付(今日の日付)
-- 今日やったこと
-- 気づき
-- 明日やること
-
-空欄で書いておいて。</code></pre>
-
-    <p>
-      .mdは「マークダウン」という、軽い文書フォーマット。
-      メモ代わりに使いやすい形式です。
-    </p>
-
-    <h3>プロジェクト一式を作る</h3>
-
-<pre><code>「my_website」というフォルダを作って、
-その中に、シンプルなホームページ一式を作って。
-
-- index.html(トップページ)
-- style.css(見た目)
-- profile.html(自己紹介)
-
-内容は仮で、あとから自分で書き換える想定。</code></pre>
-
-    <p>
-      Claudeがフォルダとファイルをまとめて作成してくれます。
-    </p>
-
-    <h2>4. 編集:既存ファイルを書き換える</h2>
-
-    <h3>1箇所だけ直す</h3>
-
-<pre><code>profile.html の「hello」を「こんにちは」に変えて。</code></pre>
-
-    <h3>全体を書き換える</h3>
-
-<pre><code>report.txtを読んで、文章を整えて書き直して。
-誤字脱字を直して、改行を見やすく調整。</code></pre>
-
-    <h3>複数ファイル一括で</h3>
-
-<pre><code>このフォルダの.htmlファイル全部で、
-「copyright 2024」を「copyright 2026」に置き換えて。</code></pre>
-
-    <h2>5. 事故防止:Gitを使ってバックアップ</h2>
-
-    <p>
-      Claudeに大きな書き換えを任せる前に、<strong>必ずバックアップ</strong>を取ってください。
-      おすすめは<strong>Git(ギット)</strong>という仕組みを使う方法。
-    </p>
-
-    <h3>Gitって何?</h3>
-
-    <p>
-      Gitは「ファイルの歴史を記録してくれるタイムマシン」みたいな仕組み。
-      Claudeが変なことをしても、<strong>前の状態にいつでも戻せる</strong>。
-    </p>
-
-    <h3>Gitの使い方(最低限)</h3>
-
-    <p>Claudeに聞けば全部やってくれます。</p>
-
-<pre><code>このフォルダをGit管理下にして。
-「最初の状態」としてコミットを1つ作って。</code></pre>
-
-    <p>こう頼めば、バックアップの起点ができます。</p>
-
-    <p>大きな作業の後は:</p>
-
-<pre><code>今の状態を「◯◯の変更完了」としてコミットして。</code></pre>
-
-    <p>万が一、変な風に書き換わったら:</p>
-
-<pre><code>さっきの変更を全部取り消して、前のコミットに戻して。</code></pre>
+    <p><strong>HTMLファイル（.html）</strong></p>
+<pre><code>自己紹介のシンプルなホームページを作って。
+名前は「田中太郎」、仕事は「営業マン」で。
+index.htmlという名前でデスクトップに保存して。</code></pre>
 
     <div class="tip">
-      Gitは最初ちょっと難しいですが、<strong>「前に戻れる」安心感</strong>は絶大。
-      Claudeに教えてもらいながら使えば、数日で慣れます。
+      保存場所を日本語で「デスクトップに」「書類フォルダに」のように指定できます。具体的なパスを書く必要はありません。Claudeが適切な場所に変換してくれます。
     </div>
 
-    <h2>6. 使える実例5選</h2>
+    <h2>3. 作ったファイルを確認する流れ</h2>
 
-    <h3>例1:フォルダのファイル名を一括変更</h3>
-
-<pre><code>このフォルダにある画像ファイルを、
-「2026年04月24日_1.jpg」のような形式にリネームして。
-日付は撮影日、連番は撮影順で。</code></pre>
-
-    <h3>例2:テキストの集計</h3>
-
-<pre><code>「logs」フォルダの中の.txtファイルを全部読んで、
-エラーメッセージだけ抽出して、error_summary.csvにまとめて。</code></pre>
-
-    <h3>例3:文書の置換</h3>
-
-<pre><code>docs/ フォルダの中にある.mdファイル全部で、
-「ABC株式会社」を「XYZ合同会社」に置き換えて。
-
-ただし、表紙ファイル(cover.md)だけは置き換えないで。</code></pre>
-
-    <h3>例4:CSVの整形</h3>
-
-<pre><code>顧客リスト.csvを読み込んで、
-メールアドレスが重複している行を削除して、
-新しくclean.csvとして保存して。</code></pre>
-
-    <h3>例5:画像の整理</h3>
-
-<pre><code>photos/ フォルダの画像を撮影日別にサブフォルダに分類して。
-例:「2026-01」「2026-02」...みたいな月別フォルダで。</code></pre>
-
-    <h2>7. よくあるミスと対策</h2>
-
-    <h3>ミス1:意図と違うファイルを書き換えられた</h3>
-
-    <p>
-      対策:<strong>先に手順を聞く</strong>。「これから何をするか」を先に答えてもらい、OK出してから実行。
-    </p>
-
-    <h3>ミス2:バックアップ無しで実行して後悔</h3>
-
-    <p>
-      対策:必ずGitでコミットしてから作業。またはフォルダを<strong>丸ごとコピー</strong>してから。
-    </p>
-
-    <h3>ミス3:大量のファイルを一気に処理させたら想定外のものまで処理された</h3>
-
-    <p>
-      対策:<strong>「まず1〜2個でテスト」してから全部に広げる</strong>。
-    </p>
-
-<pre><code>全ファイル処理する前に、まず1つだけでテスト処理して、
-結果を見せて。問題なければ、残り全部に広げる。</code></pre>
-
-    <h2>8. やってみよう</h2>
+    <p>ファイルを作ったあとは、すぐ開いて確認しましょう。</p>
 
     <ol>
-      <li>練習フォルダを1つ作る</li>
-      <li>その中にテキストファイルを5つ、中身を適当に書いて作る</li>
-      <li>Claude Codeで次を順番に依頼:
-        <ul>
-          <li>フォルダの中身を一覧にして</li>
-          <li>5つのファイルの中身を全部連結して、まとめ.txtを作って</li>
-          <li>まとめ.txtの文字数を教えて</li>
-          <li>5つのファイルを「backup/」サブフォルダに移動して</li>
-        </ul>
-      </li>
-      <li>各ステップで、どう動いたかを観察する</li>
+      <li>Claudeが「作りました」と報告する</li>
+      <li>デスクトップや指定した場所にファイルができているか確認</li>
+      <li>ファイルをダブルクリックして中身を確認</li>
+      <li>直したい部分があれば「ここを直して」と話しかける</li>
     </ol>
 
-    <div class="tip">
-      このLESSONの内容が身につけば、<strong>日常の事務作業の半分以上</strong>が時短できます。
-      あとは繰り返し使って、自分の仕事に馴染ませるだけ。
+    <p>
+      もし中身が思ったのと違っても、「3番目の項目を『連絡事項』に変えて」のように、追加で指示すれば修正してくれます。
+    </p>
+
+    <h2>4. 安全策：実行前に「何をやるか見せて」</h2>
+
+    <p>
+      大事なのはこの習慣です。Claudeに何かをさせる前に、まず計画を見せてもらう。
+    </p>
+
+<pre><code>議事録テンプレートのテキストファイルを作りたい。
+まず、どんな内容で、どこに保存するか教えて。
+OK出してから実行して。</code></pre>
+
+    <p>
+      Claudeが「こういう内容で、デスクトップに保存します」と説明してくれます。それを確認してから「OK、やって」と答えれば実行されます。
+    </p>
+
+    <div class="warn">
+      ファイルを上書きする場合は特に注意。「上書きしますか？」の確認が出たら、本当にそれでいいか一度止まって考えましょう。取り消しがきかない場合もあります。
     </div>
+
+    <h2>5. 実際の使用例</h2>
+
+    <p><strong>議事録テンプレート</strong></p>
+<pre><code>毎週の定例会議で使う議事録テンプレートをWordファイルで作って。
+項目：日時、参加者、議題、決定事項、次回アクション。
+デスクトップに「議事録テンプレート.txt」として保存して。</code></pre>
+
+    <p><strong>日報フォーマット</strong></p>
+<pre><code>毎日書く日報のテンプレートを作って。
+今日の実績・明日の予定・困ったことの3セクション。
+シンプルなテキストファイルでいい。</code></pre>
+
+    <p><strong>お客様リストCSV</strong></p>
+<pre><code>営業で使うお客様リストのCSVを作って。
+会社名・担当者・電話・メール・最終訪問日の列を用意して。
+サンプル行を2つ入れておいて。</code></pre>
+
+    <h2>6. 試してみよう</h2>
+
+    <ol>
+      <li>Claude Code を起動する</li>
+      <li>「まず計画を見せて、OK出してから実行して」を最初に追加して指示する</li>
+      <li>「議事録テンプレートのテキストファイルをデスクトップに作って」と頼む</li>
+      <li>Claudeが計画を見せてきたら内容を確認してOKを出す</li>
+      <li>デスクトップにファイルができているか確認する</li>
+    </ol>
 
   </div>
 
   <aside class="summary">
     <div class="summary__title">この回のまとめ</div>
     <ul>
-      <li>ファイル操作(読み/書き/編集)は、Claude Codeの得意分野</li>
-      <li>大きな変更の前は必ずバックアップ(Git or フォルダコピー)</li>
-      <li>「先に手順を見せて」「まず1つでテスト」で事故防止</li>
-      <li>慣れれば、事務作業が一気に自動化できる</li>
+      <li>「〇〇というファイルを作って、デスクトップに保存して」の一言で完結する</li>
+      <li>テキスト・CSV・HTMLなど種類を選んで作れる</li>
+      <li>作ったあとはファイルを開いて中身を確認する</li>
+      <li>「まず計画を見せて」と言ってから実行させるのが安全</li>
     </ul>
   </aside>
 
   <nav class="lesson-nav">
     <a href="02.html" class="prev">
       <span class="lesson-nav__dir">◀ 前の回</span>
-      <span class="lesson-nav__title">LESSON 02 — 話しかけて動かしてみる</span>
+      <span class="lesson-nav__title">LESSON 02 — フォルダの中身を全部説明してもらう</span>
     </a>
     <a href="04.html" class="next">
       <span class="lesson-nav__dir">次の回 ▶</span>
-      <span class="lesson-nav__title">LESSON 04 — エラーが出たら直してもらう</span>
+      <span class="lesson-nav__title">LESSON 04 — 全部のファイルに一括変更をかける</span>
     </a>
   </nav>
 
@@ -268,8 +159,8 @@
 <footer class="site-footer">
   <div class="site-footer__links">
     <a href="../index.html">トップ</a>
-    <a href="../index.html#cowork">アプリ編</a>
-    <a href="../index.html#code">パソコン編</a>
+    <a href="../index.html#cowork">Cowork</a>
+    <a href="../index.html#code">Claude Code</a>
   </div>
   <p>&copy; Claudeまるわかり講座</p>
 </footer>
